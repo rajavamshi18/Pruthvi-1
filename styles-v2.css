@@ -946,3 +946,67 @@ footer {
     margin: 0 auto 35px;
 }
 
+/* Strict Mobile Queries for perfect phone compatibility */
+@media (max-width: 768px) {
+    section {
+        padding: 50px 15px;
+    }
+    
+    .nav-container {
+        padding: 15px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.3rem;
+        line-height: 1.2;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .section-header p {
+        font-size: 0.95rem;
+    }
+    
+    .carousel-container {
+        height: 480px;
+    }
+    
+    .carousel-3d, .carousel-item-3d {
+        width: 280px;
+        height: 340px;
+    }
+    
+    .booking-form-card {
+        padding: 20px 15px;
+    }
+    
+    .instagram-banner {
+        padding: 60px 20px;
+    }
+    
+    .instagram-banner h3 {
+        font-size: 1.8rem;
+    }
+    
+    footer {
+        padding: 40px 20px;
+    }
+    
+    .hero-btns {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .hero-btns a {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+}
+

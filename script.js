@@ -69,6 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
        3. 3D Rotating Portfolio Carousel
        ========================================================================== */
     const carousel = document.getElementById('showcaseCarousel');
+    const carouselContainer = document.querySelector('.showcase-container');
     const items = document.querySelectorAll('.carousel-item-3d');
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
@@ -146,25 +147,6 @@ document.addEventListener('DOMContentLoaded', () => {
         let touchStartX = 0;
         let touchEndX = 0;
         
-        carouselContainer.addEventListener('touchstart', e => {
-            touchStartX = e.changedTouches[0].screenX;
-            pauseAutoPlay();
-        }, { passive: true });
-        
-        carouselContainer.addEventListener('touchend', e => {
-            touchEndX = e.changedTouches[0].screenX;
-            if (touchEndX < touchStartX - 50) {
-                // swiped left -> next
-                currentAngle -= angleUnit;
-                rotateCarousel();
-            } else if (touchEndX > touchStartX + 50) {
-                // swiped right -> prev
-                currentAngle += angleUnit;
-                rotateCarousel();
-            }
-            startAutoPlay();
-        }, { passive: true });
-        
         // Auto-play functionality
         let autoPlayInterval;
         
@@ -172,16 +154,35 @@ document.addEventListener('DOMContentLoaded', () => {
             autoPlayInterval = setInterval(() => {
                 currentAngle -= angleUnit;
                 rotateCarousel();
-            }, 1800); // 1.8 seconds provides a smooth, elegant pacing
+            }, 1800);
         }
         
         function pauseAutoPlay() {
             clearInterval(autoPlayInterval);
         }
-        
-        // Pause on hover
-        carouselContainer.addEventListener('mouseenter', pauseAutoPlay);
-        carouselContainer.addEventListener('mouseleave', startAutoPlay);
+
+        if (carouselContainer) {
+            carouselContainer.addEventListener('touchstart', e => {
+                touchStartX = e.changedTouches[0].screenX;
+                pauseAutoPlay();
+            }, { passive: true });
+            
+            carouselContainer.addEventListener('touchend', e => {
+                touchEndX = e.changedTouches[0].screenX;
+                if (touchEndX < touchStartX - 50) {
+                    currentAngle -= angleUnit;
+                    rotateCarousel();
+                } else if (touchEndX > touchStartX + 50) {
+                    currentAngle += angleUnit;
+                    rotateCarousel();
+                }
+                startAutoPlay();
+            }, { passive: true });
+
+            // Pause auto-play on hover
+            carouselContainer.addEventListener('mouseenter', pauseAutoPlay);
+            carouselContainer.addEventListener('mouseleave', startAutoPlay);
+        }
         
         // Initial setup
         rotateCarousel();
@@ -246,161 +247,112 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
+
     /* ==========================================================================
        5. Native Glassmorphic Form Submission to Google Sheet (via Apps Script)
        ========================================================================== */
     const contactForm = document.getElementById('consultationForm');
-    
+
     if (contactForm) {
-        const clientName = document.getElementById('clientName');
-        const clientEmail = document.getElementById('clientEmail');
-        const clientPhone = document.getElementById('clientPhone');
-        const projectType = document.getElementById('projectType');
+        const clientName    = document.getElementById('clientName');
+        const clientEmail   = document.getElementById('clientEmail');
+        const clientPhone   = document.getElementById('clientPhone');
+        const projectType   = document.getElementById('projectType');
         const projectMessage = document.getElementById('projectMessage');
-        const submitBtn = document.getElementById('submitFormBtn');
-        
-        const nameError = document.getElementById('nameError');
+        const submitBtn     = document.getElementById('submitFormBtn');
+
+        const nameError  = document.getElementById('nameError');
         const emailError = document.getElementById('emailError');
         const phoneError = document.getElementById('phoneError');
-        const typeError = document.getElementById('typeError');
-        
+
         const validateEmail = (email) => {
-            const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            return re.test(String(email).toLowerCase());
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email).toLowerCase());
         };
-        
+
         const validatePhone = (phone) => {
-            const re = /^\+?[\d\s-]{10,}$/;
-            return re.test(String(phone).trim());
+            return /^\+?[\d\s\-]{10,}$/.test(String(phone).trim());
         };
-        
-        const clearErrors = () => {
-            nameError.style.display = 'none';
-            emailError.style.display = 'none';
-            phoneError.style.display = 'none';
-            typeError.style.display = 'none';
+
+        const showSuccess = (name, inquiryId) => {
+            const overlay  = document.getElementById('successOverlay');
+            const card     = document.getElementById('successCard');
+            const nameSpan = document.getElementById('successName');
+            const idSpan   = document.getElementById('successId');
+            if (!overlay || !card || !nameSpan || !idSpan) return;
+            nameSpan.textContent = name;
+            idSpan.textContent   = inquiryId;
+            overlay.style.display = 'flex';
+            setTimeout(() => {
+                card.style.transform = 'scale(1)';
+                card.style.opacity   = '1';
+            }, 10);
         };
-        
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            clearErrors();
-            
+
+        submitBtn.addEventListener('click', () => {
+
+            // Clear previous errors
+            [nameError, emailError, phoneError].forEach(el => { if (el) el.style.display = 'none'; });
+
             let isValid = true;
-            
-            // Name Check
+
             if (clientName.value.trim().length < 3) {
-                nameError.style.display = 'block';
+                if (nameError) nameError.style.display = 'block';
                 isValid = false;
             }
-            
-            // Email Check
             if (!validateEmail(clientEmail.value.trim())) {
-                emailError.style.display = 'block';
+                if (emailError) emailError.style.display = 'block';
                 isValid = false;
             }
-            
-            // Phone Check
             if (!validatePhone(clientPhone.value.trim())) {
-                phoneError.style.display = 'block';
+                if (phoneError) phoneError.style.display = 'block';
                 isValid = false;
             }
-            
-            // Service Selection Check
-            if (projectType.value === "") {
-                typeError.style.display = 'block';
-                isValid = false;
-            }
-            
+
             if (!isValid) return;
-                // Check if the URL is still the default placeholder
-                if (GOOGLE_SCRIPT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL') {
-                    alert("Developer Note: Form is validated, but the Google Apps Script Web App URL has not been set yet. Please paste your URL at the top of script.js.");
-                    return;
-                }
-                
-                // Save the name before form reset
-                const savedName = clientName.value;
-                
-                // Generate unique Inquiry ID: MRC-YYYYMMDD-HHMMSS-XXXX
-                const now = new Date();
-                const datePart = now.getFullYear().toString() +
-                    String(now.getMonth() + 1).padStart(2, '0') +
-                    String(now.getDate()).padStart(2, '0');
-                const timePart = String(now.getHours()).padStart(2, '0') +
-                    String(now.getMinutes()).padStart(2, '0') +
-                    String(now.getSeconds()).padStart(2, '0');
-                const randomPart = Math.random().toString(36).substring(2, 6).toUpperCase();
-                const inquiryId = `MRC-${datePart}-${timePart}-${randomPart}`;
-                
-                // Inject the ID into the hidden form field so it goes to the spreadsheet
-                document.getElementById('inquiryIdField').value = inquiryId;
-                
-                // Show sending state
-                submitBtn.disabled = true;
-                submitBtn.textContent = ' Sending Inquiries...';
-                const spinIcon = document.createElement('i');
-                spinIcon.className = 'fa-solid fa-circle-notch fa-spin';
-                submitBtn.insertBefore(spinIcon, submitBtn.firstChild);
-                
-                // Create a hidden iframe to receive the form response
-                const iframeName = 'hidden_iframe_' + Date.now();
-                const hiddenIframe = document.createElement('iframe');
-                hiddenIframe.name = iframeName;
-                hiddenIframe.style.display = 'none';
-                document.body.appendChild(hiddenIframe);
-                
-                // Temporarily set the form to submit to Google Apps Script via the hidden iframe
-                contactForm.action = GOOGLE_SCRIPT_URL;
-                contactForm.method = 'POST';
-                contactForm.target = iframeName;
-                
-                // Listen for iframe load (means Google received and processed the data)
-                hiddenIframe.addEventListener('load', function() {
-                    // Show premium success overlay with Inquiry ID
-                    const overlay = document.getElementById('successOverlay');
-                    const card = document.getElementById('successCard');
-                    const nameSpan = document.getElementById('successName');
-                    const idSpan = document.getElementById('successId');
-                    
-                    nameSpan.textContent = savedName;
-                    idSpan.textContent = inquiryId;
-                    overlay.style.display = 'flex';
-                    
-                    // Trigger entrance animation
-                    setTimeout(() => {
-                        card.style.transform = 'scale(1)';
-                        card.style.opacity = '1';
-                    }, 10);
-                    contactForm.reset();
-                    
-                    // Remove any inline styles we might have added, letting CSS take over
-                    document.querySelectorAll('.form-label').forEach(label => {
-                        label.removeAttribute('style');
-                    });
-                    
-                    // Restore button state
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = ' Send Inquiry';
-                    const planeIcon = document.createElement('i');
-                    planeIcon.className = 'fa-solid fa-paper-plane';
-                    submitBtn.insertBefore(planeIcon, submitBtn.firstChild);
-                    
-                    // Remove the hidden iframe after a short delay
-                    setTimeout(() => { hiddenIframe.remove(); }, 1000);
-                    
-                    // Clean up form attributes
-                    contactForm.removeAttribute('action');
-                    contactForm.removeAttribute('target');
-                });
-                
-                // Actually submit the form natively (this sends the POST to the iframe)
-                contactForm.submit();
+
+            const savedName = clientName.value.trim();
+
+            // Generate unique Inquiry ID: MRC-YYYYMMDD-HHMMSS-XXXX
+            const now        = new Date();
+            const datePart   = now.getFullYear().toString() + String(now.getMonth() + 1).padStart(2, '0') + String(now.getDate()).padStart(2, '0');
+            const timePart   = String(now.getHours()).padStart(2, '0') + String(now.getMinutes()).padStart(2, '0') + String(now.getSeconds()).padStart(2, '0');
+            const randomPart = Math.random().toString(36).substring(2, 6).toUpperCase();
+            const inquiryId  = `MRC-${datePart}-${timePart}-${randomPart}`;
+
+            // Update button to loading state
+            submitBtn.disabled  = true;
+            submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Sending...';
+
+            // Build FormData payload
+            const formData = new FormData();
+            formData.append('Name',      clientName.value.trim());
+            formData.append('Email',     clientEmail.value.trim());
+            formData.append('Phone',     clientPhone.value.trim());
+            formData.append('Service',   projectType ? projectType.value : 'Not Specified');
+            formData.append('Message',   projectMessage ? projectMessage.value.trim() : '');
+            formData.append('InquiryID', inquiryId);
+
+            const onDone = () => {
+                contactForm.reset();
+                document.querySelectorAll('.form-label').forEach(label => label.removeAttribute('style'));
+                submitBtn.disabled  = false;
+                submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Inquiry';
+                showSuccess(savedName, inquiryId);
+            };
+
+            // Send data to Google Apps Script
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode:   'no-cors',
+                body:   formData
+            }).then(onDone).catch(onDone);
         });
-        
-        // Remove error displays on immediate focus inputs
-        clientName.addEventListener('input', () => { if (clientName.value.trim().length >= 3) nameError.style.display = 'none'; });
-        clientEmail.addEventListener('input', () => { if (validateEmail(clientEmail.value.trim())) emailError.style.display = 'none'; });
-        clientPhone.addEventListener('input', () => { if (validatePhone(clientPhone.value.trim())) phoneError.style.display = 'none'; });
-        projectType.addEventListener('change', () => { if (projectType.value !== "") typeError.style.display = 'none'; });
+
+        // Live inline validation clearing
+        if (clientName)  clientName.addEventListener('input',  () => { if (clientName.value.trim().length >= 3 && nameError)          nameError.style.display  = 'none'; });
+        if (clientEmail) clientEmail.addEventListener('input', () => { if (validateEmail(clientEmail.value.trim()) && emailError)     emailError.style.display = 'none'; });
+        if (clientPhone) clientPhone.addEventListener('input', () => { if (validatePhone(clientPhone.value.trim()) && phoneError)     phoneError.style.display = 'none'; });
     }
 });
+
+
