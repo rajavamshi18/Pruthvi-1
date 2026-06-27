@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Custom Style Sheet -->
-    <link rel="stylesheet" href="styles-v2.css">
+    <link rel="stylesheet" href="styles-v2.css?v=3">
 </head>
 <body>
 
@@ -235,22 +235,29 @@
                     <div class="info-item">
                         <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
                         <div class="info-text">
-                            <h4>Phone Details</h4>
-                            <p>+91 8978010771, 8979888789</p>
+                            <h4>Phone / Mobile</h4>
+                            <p>+91 8978010771<br>+91 8979888789</p>
                         </div>
                     </div>
                     <div class="info-item">
                         <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
                         <div class="info-text">
-                            <h4>Direct Email</h4>
+                            <h4>Mail</h4>
                             <p>mittapallirajaiah26@gmail.com</p>
                         </div>
                     </div>
                     <div class="info-item">
                         <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
                         <div class="info-text">
-                            <h4>Design Studio</h4>
+                            <h4>Location</h4>
                             <p>Near VKB function hall, Govindupalli, Jagtial, Telangana</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                        <div class="info-text">
+                            <h4>WhatsApp</h4>
+                            <p><a href="https://wa.me/918979888789?text=Hello%20MR%20Construction%2C%20I%20am%20interested%20in%20your%20services%20and%20would%20like%20to%20discuss%20a%20project%20requirement%20with%20you." target="_blank" style="color: var(--accent-gold); font-weight: 600; text-decoration: underline; text-underline-offset: 4px; transition: color 0.3s;" onmouseover="this.style.color='var(--text-pure)'" onmouseout="this.style.color='var(--accent-gold)'">Quick Response <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.7rem; margin-left: 5px;"></i></a></p>
                         </div>
                     </div>
                 </div>
@@ -267,33 +274,39 @@
                 <!-- 5. Paste it in place of the 'src="..."' URL in the iframe below. -->
                 <form id="consultationForm" novalidate>
                     <div class="form-group">
-                        <input type="text" class="form-input" id="clientName" name="Name" required autocomplete="name">
-                        <label class="form-label" for="clientName">Full Name</label>
+                        <input type="text" class="form-input" id="clientName" name="Name" required autocomplete="name" placeholder=" ">
+                        <label class="form-label" for="clientName">Full Name <span style="color: #ff5252;">*</span></label>
                         <div class="error-message" id="nameError">Please enter your full name (at least 3 characters).</div>
                     </div>
                     
                     <div class="form-group">
-                        <input type="email" class="form-input" id="clientEmail" name="Email" required autocomplete="email">
-                        <label class="form-label" for="clientEmail">Email Address</label>
+                        <input type="email" class="form-input" id="clientEmail" name="Email" required autocomplete="email" placeholder=" ">
+                        <label class="form-label" for="clientEmail">Email Address <span style="color: #ff5252;">*</span></label>
                         <div class="error-message" id="emailError">Please enter a valid email address.</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="tel" class="form-input" id="clientPhone" name="Phone" required autocomplete="tel" placeholder=" ">
+                        <label class="form-label" for="clientPhone">Phone Number <span style="color: #ff5252;">*</span></label>
+                        <div class="error-message" id="phoneError">Please enter a valid phone number.</div>
                     </div>
                     
                     <div class="form-group" style="margin-bottom: 40px;">
                         <select class="form-input" id="projectType" name="Service" required style="border-radius: 0;">
-                            <option value="" disabled selected></option>
-                            <option value="Residential Building Construction">Residential Building Construction</option>
-                            <option value="Commercial Space Architecture">Commercial Space Architecture</option>
-                            <option value="Luxury Interior Design">Luxury Interior Design</option>
-                            <option value="Before/After Room Renovation">Before/After Room Renovation</option>
+                            <option value="" disabled selected style="background-color: #11141b; color: #fff;">&nbsp;</option>
+                            <option value="Residential Building Construction" style="background-color: #11141b; color: #fff;">Residential Building Construction</option>
+                            <option value="Commercial Space Architecture" style="background-color: #11141b; color: #fff;">Commercial Space Architecture</option>
+                            <option value="Luxury Interior Design" style="background-color: #11141b; color: #fff;">Luxury Interior Design</option>
+                            <option value="Before/After Room Renovation" style="background-color: #11141b; color: #fff;">Before/After Room Renovation</option>
+                            <option value="Other / General Inquiry" style="background-color: #11141b; color: #fff;">Other / General Inquiry</option>
                         </select>
-                        <label class="form-label" for="projectType" style="top: -15px; font-size: 0.8rem; color: var(--accent-gold);">Service Type</label>
+                        <label class="form-label" for="projectType">Service Type <span style="color: #ff5252;">*</span></label>
                         <div class="error-message" id="typeError">Please select a service type.</div>
                     </div>
                     
                     <div class="form-group">
-                        <textarea class="form-input form-textarea" id="projectMessage" name="Message" required></textarea>
-                        <label class="form-label" for="projectMessage">Project Vision Details</label>
-                        <div class="error-message" id="messageError">Please share some brief details about your vision (at least 10 characters).</div>
+                        <textarea class="form-input form-textarea" id="projectMessage" name="Message" placeholder=" "></textarea>
+                        <label class="form-label" for="projectMessage">Project Vision Details (Optional)</label>
                     </div>
                     
                     <!-- Hidden field: Unique Inquiry ID generated by script.js before submit -->
@@ -375,6 +388,6 @@
     </div>
 
     <!-- Scripting Logic -->
-    <script src="script.js?v=7"></script>
+    <script src="script.js?v=9"></script>
 </body>
 </html>

@@ -91,12 +91,13 @@ header.scrolled {
 }
 
 .nav-container {
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 0 auto;
     padding: 20px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 30px;
     transition: var(--transition-smooth);
 }
 
@@ -729,6 +730,11 @@ section {
     transition: var(--transition-fast);
 }
 
+.form-input option {
+    background-color: var(--bg-dark-slate);
+    color: var(--text-pure);
+}
+
 .form-textarea {
     min-height: 100px;
     resize: none;
@@ -745,7 +751,8 @@ section {
 }
 
 .form-input:focus ~ .form-label,
-.form-input:valid ~ .form-label {
+.form-input:valid ~ .form-label,
+.form-input:not(:placeholder-shown) ~ .form-label {
     top: -15px;
     font-size: 0.8rem;
     color: var(--accent-gold);

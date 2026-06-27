@@ -142,8 +142,50 @@ document.addEventListener('DOMContentLoaded', () => {
             rotateCarousel();
         });
         
-        // Auto-run trigger occasionally
+        // Touch swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        carouselContainer.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+            pauseAutoPlay();
+        }, { passive: true });
+        
+        carouselContainer.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchEndX < touchStartX - 50) {
+                // swiped left -> next
+                currentAngle -= angleUnit;
+                rotateCarousel();
+            } else if (touchEndX > touchStartX + 50) {
+                // swiped right -> prev
+                currentAngle += angleUnit;
+                rotateCarousel();
+            }
+            startAutoPlay();
+        }, { passive: true });
+        
+        // Auto-play functionality
+        let autoPlayInterval;
+        
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(() => {
+                currentAngle -= angleUnit;
+                rotateCarousel();
+            }, 1800); // 1.8 seconds provides a smooth, elegant pacing
+        }
+        
+        function pauseAutoPlay() {
+            clearInterval(autoPlayInterval);
+        }
+        
+        // Pause on hover
+        carouselContainer.addEventListener('mouseenter', pauseAutoPlay);
+        carouselContainer.addEventListener('mouseleave', startAutoPlay);
+        
+        // Initial setup
         rotateCarousel();
+        startAutoPlay();
     }
 
 
@@ -212,25 +254,31 @@ document.addEventListener('DOMContentLoaded', () => {
     if (contactForm) {
         const clientName = document.getElementById('clientName');
         const clientEmail = document.getElementById('clientEmail');
+        const clientPhone = document.getElementById('clientPhone');
         const projectType = document.getElementById('projectType');
         const projectMessage = document.getElementById('projectMessage');
         const submitBtn = document.getElementById('submitFormBtn');
         
         const nameError = document.getElementById('nameError');
         const emailError = document.getElementById('emailError');
+        const phoneError = document.getElementById('phoneError');
         const typeError = document.getElementById('typeError');
-        const messageError = document.getElementById('messageError');
         
         const validateEmail = (email) => {
             const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             return re.test(String(email).toLowerCase());
         };
         
+        const validatePhone = (phone) => {
+            const re = /^\+?[\d\s-]{10,}$/;
+            return re.test(String(phone).trim());
+        };
+        
         const clearErrors = () => {
             nameError.style.display = 'none';
             emailError.style.display = 'none';
+            phoneError.style.display = 'none';
             typeError.style.display = 'none';
-            messageError.style.display = 'none';
         };
         
         contactForm.addEventListener('submit', (e) => {
@@ -251,19 +299,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 isValid = false;
             }
             
+            // Phone Check
+            if (!validatePhone(clientPhone.value.trim())) {
+                phoneError.style.display = 'block';
+                isValid = false;
+            }
+            
             // Service Selection Check
             if (projectType.value === "") {
                 typeError.style.display = 'block';
                 isValid = false;
             }
             
-            // Message Check
-            if (projectMessage.value.trim().length < 10) {
-                messageError.style.display = 'block';
-                isValid = false;
-            }
-            
-            if (isValid) {
+            if (!isValid) return;
                 // Check if the URL is still the default placeholder
                 if (GOOGLE_SCRIPT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL') {
                     alert("Developer Note: Form is validated, but the Google Apps Script Web App URL has not been set yet. Please paste your URL at the top of script.js.");
@@ -325,10 +373,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     }, 10);
                     contactForm.reset();
                     
-                    // Push labels back down
+                    // Remove any inline styles we might have added, letting CSS take over
                     document.querySelectorAll('.form-label').forEach(label => {
-                        label.style.top = '10px';
-                        label.style.fontSize = '1rem';
+                        label.removeAttribute('style');
                     });
                     
                     // Restore button state
@@ -348,13 +395,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // Actually submit the form natively (this sends the POST to the iframe)
                 contactForm.submit();
-            }
         });
         
         // Remove error displays on immediate focus inputs
         clientName.addEventListener('input', () => { if (clientName.value.trim().length >= 3) nameError.style.display = 'none'; });
         clientEmail.addEventListener('input', () => { if (validateEmail(clientEmail.value.trim())) emailError.style.display = 'none'; });
+        clientPhone.addEventListener('input', () => { if (validatePhone(clientPhone.value.trim())) phoneError.style.display = 'none'; });
         projectType.addEventListener('change', () => { if (projectType.value !== "") typeError.style.display = 'none'; });
-        projectMessage.addEventListener('input', () => { if (projectMessage.value.trim().length >= 10) messageError.style.display = 'none'; });
     }
 });
