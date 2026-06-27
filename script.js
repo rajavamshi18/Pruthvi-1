@@ -1,6 +1,6 @@
 // Google Apps Script Web App URL to store customer inquiries in your Google Sheet.
 // Paste your Web App URL here after deploying your Apps Script!
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx7dqjKD85YbaJQiI_l9nMViZ_r1Et_e_RlLzFlxehUuINPWLzpnTzt8IjIcQsLkhZZ3A/exec';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbSj8i_mauPH5_v7jumAd2-TVqgoQaYttHAe_UdCZNKuOGXHjg4ApZN8xLoURCKHq5IXw/exec';
 
 document.addEventListener('DOMContentLoaded', () => {
 

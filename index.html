@@ -314,7 +314,10 @@
                     </button>
                 </form>
                 <script>
+                var _isSubmitting = false;
                 function handleFormSubmit() {
+                    if (_isSubmitting) return; // prevent double-fire
+
                     var name  = document.getElementById('clientName').value.trim();
                     var email = document.getElementById('clientEmail').value.trim();
                     var phone = document.getElementById('clientPhone').value.trim();
@@ -332,6 +335,7 @@
                     if (!/^\+?[\d\s\-]{10,}$/.test(phone)) { if (phoneErr) phoneErr.style.display = 'block'; valid = false; }
                     if (!valid) return;
 
+                    _isSubmitting = true;
                     var btn = document.getElementById('submitFormBtn');
                     btn.disabled = true;
                     btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Sending...';
@@ -339,19 +343,22 @@
                     var now = new Date();
                     var id  = 'MRC-' + now.getFullYear() + String(now.getMonth()+1).padStart(2,'0') + String(now.getDate()).padStart(2,'0') + '-' + String(now.getHours()).padStart(2,'0') + String(now.getMinutes()).padStart(2,'0') + String(now.getSeconds()).padStart(2,'0') + '-' + Math.random().toString(36).substring(2,6).toUpperCase();
 
-                    var GURL = 'https://script.google.com/macros/s/AKfycbx7dqjKD85YbaJQiI_l9nMViZ_r1Et_e_RlLzFlxehUuINPWLzpnTzt8IjIcQsLkhZZ3A/exec';
+                    var GURL = 'https://script.google.com/macros/s/AKfycbSj8i_mauPH5_v7jumAd2-TVqgoQaYttHAe_UdCZNKuOGXHjg4ApZN8xLoURCKHq5IXw/exec';
 
-                    var params = new URLSearchParams();
-                    params.append('Name',      name);
-                    params.append('Email',     email);
-                    params.append('Phone',     phone);
-                    params.append('Service',   document.getElementById('projectType') ? document.getElementById('projectType').value : 'Not Specified');
-                    params.append('Message',   document.getElementById('projectMessage') ? document.getElementById('projectMessage').value.trim() : '');
-                    params.append('InquiryID', id);
+                    // Use GET with URL params — avoids the POST redirect double-fire issue in Google Apps Script
+                    var url = GURL
+                        + '?Name='      + encodeURIComponent(name)
+                        + '&Email='     + encodeURIComponent(email)
+                        + '&Phone='     + encodeURIComponent(phone)
+                        + '&Service='   + encodeURIComponent(document.getElementById('projectType') ? document.getElementById('projectType').value : 'Not Specified')
+                        + '&Message='   + encodeURIComponent(document.getElementById('projectMessage') ? document.getElementById('projectMessage').value.trim() : '')
+                        + '&InquiryID=' + encodeURIComponent(id);
 
-                    fetch(GURL, { method:'POST', mode:'no-cors', body: params }).then(done).catch(done);
-
+                    var _fired = false;
                     function done() {
+                        if (_fired) return;
+                        _fired = true;
+                        _isSubmitting = false;
                         document.getElementById('consultationForm').reset();
                         btn.disabled = false;
                         btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Inquiry';
@@ -364,6 +371,8 @@
                         if (overlay)  overlay.style.display = 'flex';
                         if (card) setTimeout(function(){ card.style.transform='scale(1)'; card.style.opacity='1'; }, 10);
                     }
+
+                    fetch(url, { mode: 'no-cors' }).then(done).catch(done);
                 }
                 </script>
             </div>
