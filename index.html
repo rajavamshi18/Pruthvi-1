@@ -343,7 +343,7 @@
                     var now = new Date();
                     var id  = 'MRC-' + now.getFullYear() + String(now.getMonth()+1).padStart(2,'0') + String(now.getDate()).padStart(2,'0') + '-' + String(now.getHours()).padStart(2,'0') + String(now.getMinutes()).padStart(2,'0') + String(now.getSeconds()).padStart(2,'0') + '-' + Math.random().toString(36).substring(2,6).toUpperCase();
 
-                    var GURL = 'https://script.google.com/macros/s/AKfycbSj8i_mauPH5_v7jumAd2-TVqgoQaYttHAe_UdCZNKuOGXHjg4ApZN8xLoURCKHq5IXw/exec';
+                    var GURL = 'https://script.google.com/macros/s/AKfycbxqE8fKubGiIjnLcVJaLJu33xGsNYGJLyw_tVZ76Ms43qvrLRshKCEkYsCWFtfqTLamYw/exec';
 
                     // Use GET with URL params — avoids the POST redirect double-fire issue in Google Apps Script
                     var url = GURL
@@ -372,7 +372,17 @@
                         if (card) setTimeout(function(){ card.style.transform='scale(1)'; card.style.opacity='1'; }, 10);
                     }
 
-                    fetch(url, { mode: 'no-cors' }).then(done).catch(done);
+                    fetch(url, { mode: 'no-cors' })
+                        .then(function() {
+                            done();
+                        })
+                        .catch(function(err) {
+                            console.error('Form submission failed:', err);
+                            _isSubmitting = false;
+                            btn.disabled = false;
+                            btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Inquiry';
+                            alert('Submission failed. Please check your network connection or try again later.');
+                        });
                 }
                 </script>
             </div>
