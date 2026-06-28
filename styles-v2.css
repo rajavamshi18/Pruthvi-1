@@ -8,13 +8,75 @@
     --accent-gold-hover: #e5c494;
     --text-pure: #ffffff;
     --text-silver: #a0a7b5;
-    --text-muted: #626a7a;
+    --text-muted: #8d96a7;  /* was #626a7a — lightened for 4.5:1 contrast ratio */
     --glass-bg: rgba(17, 20, 27, 0.65);
     --glass-border: rgba(255, 255, 255, 0.07);
     --glass-glow: rgba(255, 255, 255, 0.02);
     --transition-smooth: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
     --transition-fast: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
+
+/* ============================================================
+   DEVICE-SPECIFIC STYLES (applied via JS User-Agent detection)
+   Classes added to <html>: .is-mobile .is-tablet .is-desktop .is-touch
+   ============================================================ */
+
+/* --- MOBILE PHONE (iPhone / Android) --- */
+html.is-mobile .service-card-wrapper:hover .service-card-3d {
+    /* Disable hover-flip on mobile — use tap instead (.flipped class via JS) */
+    transform: none;
+}
+
+html.is-mobile .hero-left-content h1 {
+    /* Extra safety: ensure h1 never overflows on any phone */
+    width: 100% !important;
+    font-size: clamp(1.8rem, 7vw, 2.8rem) !important;
+}
+
+html.is-mobile .hero-split-btn {
+    /* Always hide the floating arrow on phones */
+    display: none !important;
+}
+
+html.is-mobile .hero-right {
+    height: 220px;
+}
+
+/* Simplify shadows and blur on mobile for GPU performance */
+html.is-mobile .booking-form-card {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgba(24, 29, 38, 0.95);
+}
+
+/* --- TABLET (iPad / Android Tablet) --- */
+html.is-tablet .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+html.is-tablet .hero-left-content h1 {
+    font-size: 3.2rem;
+    width: 110%;
+}
+
+/* --- TOUCH DEVICES (both mobile + tablet) --- */
+/* Increase tap target sizes for touch */
+html.is-touch .ctrl-btn {
+    width: 50px;
+    height: 50px;
+}
+
+html.is-touch .nav-links a {
+    padding: 10px 0;
+}
+
+html.is-touch .btn-gold,
+html.is-touch .btn-outline {
+    padding: 14px 28px;
+    min-height: 48px; /* WCAG touch target minimum */
+}
+
+
 
 /* Global Reset & Base Styles */
 * {
@@ -36,28 +98,36 @@ body {
     min-height: 100vh;
     line-height: 1.6;
     background: radial-gradient(circle at top right, rgba(207, 168, 107, 0.06), transparent 60%),
-                radial-gradient(circle at bottom left, rgba(207, 168, 107, 0.04), transparent 50%),
-                var(--bg-dark-obsidian);
+        radial-gradient(circle at bottom left, rgba(207, 168, 107, 0.04), transparent 50%),
+        var(--bg-dark-obsidian);
 }
 
 /* Scrollbar Customization */
 ::-webkit-scrollbar {
     width: 8px;
 }
+
 ::-webkit-scrollbar-track {
     background: var(--bg-dark-obsidian);
 }
+
 ::-webkit-scrollbar-thumb {
     background: var(--bg-dark-card);
     border-radius: 4px;
     border: 2px solid var(--bg-dark-obsidian);
 }
+
 ::-webkit-scrollbar-thumb:hover {
     background: var(--accent-gold);
 }
 
 /* Typography styles */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: 'Outfit', sans-serif;
     font-weight: 700;
     letter-spacing: -0.5px;
@@ -294,7 +364,8 @@ section {
     letter-spacing: -2px;
     margin-bottom: 25px;
     text-transform: uppercase;
-    width: 135%; /* Stretches horizontally to overlap the right column image */
+    width: 135%;
+    /* Stretches horizontally to overlap the right column image */
     position: relative;
     z-index: 10;
     color: var(--text-pure);
@@ -363,7 +434,7 @@ section {
 
 .hero-footer a {
     font-size: 0.8rem;
-    color: var(--text-muted);
+    color: #8d96a7; /* WCAG AA compliant — contrast ratio > 4.5:1 */
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -508,7 +579,7 @@ section {
     background: linear-gradient(to top, rgba(8, 10, 15, 0.95), transparent);
 }
 
-.carousel-item-info h4 {
+.carousel-item-info h3 {
     font-size: 1.3rem;
     color: var(--text-pure);
     margin-bottom: 5px;
@@ -519,6 +590,15 @@ section {
     color: var(--accent-gold);
     text-transform: uppercase;
     letter-spacing: 1.5px;
+}
+
+/* Accessibility: ensure hero-footer links & footer-text meet 4.5:1 contrast */
+.hero-footer a {
+    color: #8d96a7;
+}
+
+.footer-text {
+    color: #8d96a7;
 }
 
 /* Carousel controls */
@@ -596,19 +676,21 @@ section {
 
 .image-after {
     background-image: url('images/after.jpg');
-    width: 50%; /* JS alters this width */
+    width: 50%;
+    /* JS alters this width */
 }
 
 .slider-bar {
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 50%; /* JS alters this left */
+    left: 50%;
+    /* JS alters this left */
     width: 2px;
     background-color: var(--accent-gold);
     cursor: ew-resize;
     z-index: 10;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .slider-handle {
@@ -750,9 +832,9 @@ section {
     font-size: 1rem;
 }
 
-.form-input:focus ~ .form-label,
-.form-input:valid ~ .form-label,
-.form-input:not(:placeholder-shown) ~ .form-label {
+.form-input:focus~.form-label,
+.form-input:valid~.form-label,
+.form-input:not(:placeholder-shown)~.form-label {
     top: -15px;
     font-size: 0.8rem;
     color: var(--accent-gold);
@@ -767,6 +849,89 @@ section {
     font-size: 0.75rem;
     margin-top: 5px;
     display: none;
+}
+
+/* WhatsApp Float */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #25d366;
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 32px;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    z-index: 9990;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+    color: #fff;
+}
+
+/* Popup Modal */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(5, 5, 15, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup-modal {
+    background: var(--bg-dark-card);
+    border: 1px solid var(--glass-border);
+    padding: 40px;
+    width: 90%;
+    max-width: 450px;
+    border-radius: 16px;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    animation: popupSlideIn 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.popup-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    color: var(--text-silver);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.popup-close:hover {
+    color: var(--text-pure);
+    transform: scale(1.1);
+}
+
+@keyframes popupSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 /* Footer Section */
@@ -788,7 +953,7 @@ footer {
 
 .footer-text {
     font-size: 0.9rem;
-    color: var(--text-muted);
+    color: #8d96a7; /* WCAG AA compliant — contrast ratio > 4.5:1 */
 }
 
 .footer-socials {
@@ -823,86 +988,6 @@ footer {
     height: 2px;
     background-color: var(--text-pure);
     transition: var(--transition-fast);
-}
-
-/* Responsive Media Queries */
-@media (max-width: 991px) {
-    section {
-        padding: 80px 20px;
-    }
-    
-    .hero-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 50px;
-    }
-    
-    .hero-content p {
-        margin: 0 auto 30px;
-    }
-    
-    .hero-btns {
-        justify-content: center;
-    }
-    
-    .hero-visual-card {
-        height: 460px;
-    }
-    
-    .slider-wrapper {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-    
-    .contact-container {
-        grid-template-columns: 1fr;
-        gap: 50px;
-    }
-}
-
-@media (max-width: 1024px) {
-    .menu-toggle {
-        display: flex;
-    }
-    
-    .nav-links {
-        position: fixed;
-        top: 80px;
-        right: -100%;
-        width: 100%;
-        height: calc(100vh - 80px);
-        background-color: var(--bg-dark-obsidian);
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 40px;
-        transition: var(--transition-smooth);
-        border-top: 1px solid var(--glass-border);
-    }
-    
-    .nav-links.active {
-        right: 0;
-    }
-    
-    .nav-container {
-        padding: 20px 20px;
-    }
-    
-    header.scrolled .nav-container {
-        padding: 15px 20px;
-    }
-    
-    .hero-content h1 {
-        font-size: 2.8rem;
-    }
-    
-    .section-header h2 {
-        font-size: 2rem;
-    }
-    
-    .booking-form-card {
-        padding: 30px;
-    }
 }
 
 /* Instagram CTA Banner Styling */
@@ -946,67 +1031,339 @@ footer {
     margin: 0 auto 35px;
 }
 
-/* Strict Mobile Queries for perfect phone compatibility */
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS — Clean Single-Pass System
+   Desktop  : > 1024px  (default styles above)
+   Tablet   : 768px – 1024px
+   Mobile   : ≤ 768px
+   XS Phone : ≤ 480px
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── Hamburger button: hidden on desktop ─────────────────────── */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 2px;
+    background-color: var(--text-pure);
+    transition: var(--transition-fast);
+}
+
+/* ─── TABLET  768px – 1024px ──────────────────────────────────── */
+@media (max-width: 1024px) {
+
+    /* Nav: show hamburger, hide links */
+    .menu-toggle { display: flex; }
+
+    .nav-container { padding: 18px 24px; }
+
+    header.scrolled .nav-container { padding: 12px 24px; }
+
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background-color: var(--bg-dark-obsidian);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 36px;
+        transition: var(--transition-smooth);
+        border-top: 1px solid var(--glass-border);
+        z-index: 999;
+    }
+
+    .nav-links.active { right: 0; }
+
+    /* Hero: reduce padding and font for tablet */
+    .hero-left {
+        padding: 120px 48px 80px 32px;
+    }
+
+    .hero-left-content h1 {
+        font-size: 3.6rem;
+        width: 120%; /* still overlaps slightly on tablet */
+    }
+
+    .section-header h2 { font-size: 2.2rem; }
+
+    .booking-form-card { padding: 36px; }
+
+    /* Services: 2 columns on tablet */
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px;
+    }
+
+    .service-card-wrapper { height: 400px; }
+}
+
+/* ─── MOBILE  ≤ 768px ─────────────────────────────────────────── */
 @media (max-width: 768px) {
-    section {
-        padding: 50px 15px;
+
+    /* General */
+    section { padding: 56px 20px; }
+
+    /* Navigation */
+    .nav-container { padding: 14px 18px; }
+
+    header.scrolled .nav-container { padding: 10px 18px; }
+
+    .nav-links {
+        top: 62px;
+        height: calc(100vh - 62px);
+        gap: 32px;
     }
-    
-    .nav-container {
-        padding: 15px;
+
+    .nav-links a { font-size: 1.1rem; letter-spacing: 2px; }
+
+    /* Hide "Let's Talk" button to save nav space */
+    .nav-container > .btn-gold { display: none; }
+
+    /* ── Hero: stack vertically ── */
+    .hero {
+        flex-direction: column;
+        min-height: 100vh;
+        overflow: visible;
     }
-    
-    .hero-content h1 {
-        font-size: 2.3rem;
-        line-height: 1.2;
+
+    /* Text column: full width */
+    .hero-left {
+        width: 100%;
+        padding: 110px 24px 40px;
+        justify-content: center;
+        text-align: center;
     }
-    
-    .hero-content p {
+
+    .hero-left-content { max-width: 100%; }
+
+    /* CRITICAL: reset the 135% desktop overflow trick */
+    .hero-left-content h1 {
+        font-size: clamp(2rem, 7vw, 3rem);
+        width: 100% !important;
+        letter-spacing: -1px;
+        line-height: 1.1;
+    }
+
+    .hero-left-content p {
         font-size: 1rem;
+        max-width: 100%;
+        margin: 0 auto 28px;
     }
-    
-    .section-header h2 {
-        font-size: 1.8rem;
-    }
-    
-    .section-header p {
-        font-size: 0.95rem;
-    }
-    
-    .carousel-container {
-        height: 480px;
-    }
-    
-    .carousel-3d, .carousel-item-3d {
-        width: 280px;
-        height: 340px;
-    }
-    
-    .booking-form-card {
-        padding: 20px 15px;
-    }
-    
-    .instagram-banner {
-        padding: 60px 20px;
-    }
-    
-    .instagram-banner h3 {
-        font-size: 1.8rem;
-    }
-    
-    footer {
-        padding: 40px 20px;
-    }
-    
+
+    /* Buttons: stack full-width */
     .hero-btns {
         flex-direction: column;
-        gap: 15px;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 28px !important;
     }
-    
+
     .hero-btns a {
         width: 100%;
-        text-align: center;
+        max-width: 300px;
         justify-content: center;
+        text-align: center;
+    }
+
+    /* Footer links: center */
+    .hero-footer {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-top: 12px;
+    }
+
+    /* Hide floating arrow (overlaps on mobile) */
+    .hero-split-btn { display: none; }
+
+    /* Image column: full width banner */
+    .hero-right {
+        width: 100%;
+        height: 240px;
+        flex-shrink: 0;
+        min-height: unset;
+    }
+
+    /* ── Section headers ── */
+    .section-header { margin-bottom: 36px; }
+
+    .section-header h2 { font-size: clamp(1.6rem, 5vw, 2rem); }
+
+    .section-header p { font-size: 0.95rem; }
+
+    /* ── Services: single column ── */
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .service-card-wrapper { height: 380px; }
+
+    .service-card-side { padding: 28px; }
+
+    .service-card-front h3 { font-size: 1.4rem; }
+
+    /* ── Portfolio Carousel ── */
+    .showcase-container {
+        height: 450px;
+        padding: 0;
+    }
+
+    .carousel-3d {
+        width: 260px;
+        height: 315px;
+    }
+
+    .carousel-item-3d {
+        width: 260px;
+        height: 315px;
+    }
+
+    .carousel-controls {
+        margin-top: 26px;
+        gap: 20px;
+    }
+
+    .ctrl-btn { width: 44px; height: 44px; font-size: 1rem; }
+
+    /* ── Before/After Slider: stack ── */
+    .slider-wrapper {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .slider-description h3 {
+        font-size: 1.7rem;
+        text-align: center;
+    }
+
+    .slider-description p { text-align: center; }
+
+    .slider-container { height: 280px; }
+
+    /* ── Contact Form: full width ── */
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .contact-info-block h3 {
+        font-size: 1.4rem;
+        text-align: center;
+    }
+
+    .info-item { gap: 14px; }
+
+    .booking-form-card { padding: 24px 16px; }
+
+    .form-title {
+        font-size: 1.4rem;
+        text-align: center;
+    }
+
+    .form-group { margin-bottom: 22px; }
+
+    /* ── Instagram Banner ── */
+    .instagram-banner { padding: 50px 20px; }
+
+    .instagram-banner h3 { font-size: 1.6rem; }
+
+    .instagram-banner p { font-size: 0.95rem; }
+
+    /* ── Footer ── */
+    footer { padding: 36px 20px; }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 16px;
+    }
+
+    .footer-text { font-size: 0.8rem; line-height: 1.7; }
+
+    .footer-socials { justify-content: center; }
+}
+
+/* ─── XS PHONE  ≤ 480px ───────────────────────────────────────── */
+@media (max-width: 480px) {
+
+    section { padding: 44px 16px; }
+
+    .hero-left { padding: 95px 16px 36px; }
+
+    .hero-left-content h1 { font-size: 1.85rem; }
+
+    .hero-right { height: 200px; }
+
+    .services-grid { gap: 16px; }
+
+    .service-card-wrapper { height: 345px; }
+
+    .carousel-3d,
+    .carousel-item-3d {
+        width: 228px;
+        height: 280px;
+    }
+
+    .showcase-container { height: 400px; }
+
+    .slider-container { height: 230px; }
+
+    .section-header h2 { font-size: 1.4rem; }
+
+    .booking-form-card { padding: 18px 12px; }
+
+    .btn-gold,
+    .btn-outline {
+        font-size: 0.78rem;
+        padding: 11px 18px;
+        letter-spacing: 0.8px;
+    }
+
+    .instagram-icon-wrapper {
+        width: 64px;
+        height: 64px;
+        font-size: 2rem;
+    }
+
+    .instagram-banner h3 { font-size: 1.35rem; }
+
+    .form-title { font-size: 1.2rem; }
+
+    .info-item { gap: 12px; }
+
+    .info-icon {
+        width: 42px;
+        height: 42px;
+        font-size: 1.2rem;
     }
 }
 
+/* Force Desktop Layout for Contact Section */
+@media (min-width: 1025px) {
+    .contact-container {
+        display: grid !important;
+        grid-template-columns: 0.9fr 1.1fr !important;
+        gap: 60px !important;
+    }
+    .contact-info {
+        display: flex !important;
+    }
+    .booking-form-card {
+        width: 100% !important;
+    }
+    .form-title {
+        text-align: left !important;
+    }
+}

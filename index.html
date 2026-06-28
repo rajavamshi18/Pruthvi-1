@@ -1,28 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="MR Construction - Elite building construction, luxury architectural planning, and bespoke interior design with stunning 3D visualization in Jagtial, Telangana.">
-    <title>MR Construction | Luxury Architecture & Interior Design Jagtial</title>
-    
+    <meta name="description"
+        content="MR Construction - Elite building construction, luxury architectural planning, and bespoke interior design with stunning 3D visualization in Jagtial, Telangana.">
+    <title>MR Constructions | Luxury Architecture & Interior Design Jagtial</title>
+
     <!-- Google Fonts: Playfair Display for headings & Outfit for clean body layout -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
     <!-- FontAwesome for Premium Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <!-- Custom Style Sheet -->
-    <link rel="stylesheet" href="styles-v2.css?v=4">
+    <link rel="stylesheet" href="styles-v2.css?v=12">
 </head>
+
 <body>
 
     <!-- Header & Navigation -->
     <header id="navbar">
         <div class="nav-container">
-            <a href="#" class="logo" id="navLogo">MR<span>CONSTRUCTION</span></a>
+            <a href="#" class="logo" id="navLogo">MR<span>CONSTRUCTIONS</span></a>
             <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation Menu">
                 <span></span>
                 <span></span>
@@ -40,362 +45,902 @@
         </div>
     </header>
 
-    <!-- Split-Screen Hero Section -->
-    <section class="hero" id="hero">
-        <!-- Left content column -->
-        <div class="hero-left">
-            <div class="hero-left-content">
-                <span class="tag" style="margin-bottom: 20px; letter-spacing: 4px;">Elevate spaces, Inspire Futures</span>
-                <h1>Build the <span class="gold-text">perfect</span> home</h1>
-                <p>We combine bold architectural innovation, structural precision, and bespoke interior styling to build breathtaking modern spaces in Jagtial.</p>
-                <div class="hero-btns" style="margin-bottom: 50px;">
-                    <a href="#showcase" class="btn-gold">Explore Works <i class="fa-solid fa-arrow-right"></i></a>
-                    <a href="#booking" class="btn-outline">Consultation</a>
+    <!-- Main content landmark for accessibility/screen readers -->
+    <main id="main-content">
+
+        <!-- Split-Screen Hero Section -->
+        <section class="hero" id="hero">
+            <!-- Left content column -->
+            <div class="hero-left">
+                <div class="hero-left-content">
+                    <span class="tag" style="margin-bottom: 20px; letter-spacing: 4px;">Elevate spaces, Inspire
+                        Futures</span>
+                    <h1>Build the <span class="gold-text">perfect</span> home</h1>
+                    <p>We combine bold architectural innovation, structural precision, and bespoke interior styling to
+                        build
+                        breathtaking modern spaces in Jagtial.</p>
+                    <div class="hero-btns" style="margin-bottom: 50px;">
+                        <a href="#showcase" class="btn-gold">Explore Works <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="#booking" class="btn-outline">Consultation</a>
+                    </div>
+                    <div class="hero-footer">
+                        <a href="https://instagram.com/rajaiahconstruction26" target="_blank">Instagram Gallery</a>
+                        <a href="#booking">Book Consult</a>
+                    </div>
                 </div>
-                <div class="hero-footer">
-                    <a href="https://instagram.com/rajaiahconstruction26" target="_blank">Instagram Gallery</a>
-                    <a href="#booking">Book Consult</a>
+                <!-- Floating Boundary Arrow Button -->
+                <a href="#showcase" class="hero-split-btn" aria-label="Scroll to portfolio">
+                    <i class="fa-solid fa-arrow-right" style="transform: rotate(-45deg); font-size: 1.6rem;"></i>
+                </a>
+            </div>
+
+            <!-- Right visual column -->
+            <div class="hero-right"></div>
+        </section>
+
+        <!-- Services Section with 3D Rotate/Flip Cards -->
+        <section id="services">
+            <div class="section-header">
+                <span class="tag">Our Expertise</span>
+                <h2>Architectural Offerings</h2>
+            </div>
+
+            <div class="services-grid">
+                <!-- Card 1: Vastu & 3D Designs -->
+                <div class="service-card-wrapper">
+                    <div class="service-card-3d">
+                        <div class="service-card-side service-card-front">
+                            <div class="service-icon"><i class="fa-solid fa-compass-drafting"></i></div>
+                            <div>
+                                <h3>Vastu & 3D Designs</h3>
+                                <p>Precise 2D Vastu planning, custom structural blueprints, and gorgeous 3D
+                                    visualization
+                                    layouts tailored for modern aesthetics.</p>
+                            </div>
+                            <div class="service-number">01</div>
+                        </div>
+                        <div class="service-card-side service-card-back">
+                            <h3>Vastu Compliance</h3>
+                            <p>We specialize in designing traditional and modern houses perfectly aligned with Vastu
+                                principles to bring peace and prosperity.</p>
+                            <a href="#booking" class="btn-gold">Request Info</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: End-to-End Construction -->
+                <div class="service-card-wrapper">
+                    <div class="service-card-3d">
+                        <div class="service-card-side service-card-front">
+                            <div class="service-icon"><i class="fa-solid fa-trowel-bricks"></i></div>
+                            <div>
+                                <h3>End-to-End Construction</h3>
+                                <p>Providing premium residential and commercial construction services, offered both with
+                                    and
+                                    without material supply.</p>
+                            </div>
+                            <div class="service-number">02</div>
+                        </div>
+                        <div class="service-card-side service-card-back">
+                            <h3>Flexible Contracts</h3>
+                            <p>Whether you choose labor-only contracts or full material-inclusive turnkey services, we
+                                deliver superior quality building execution.</p>
+                            <a href="#booking" class="btn-gold">Request Info</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Interior Works & Elevation -->
+                <div class="service-card-wrapper">
+                    <div class="service-card-3d">
+                        <div class="service-card-side service-card-front">
+                            <div class="service-icon"><i class="fa-solid fa-couch"></i></div>
+                            <div>
+                                <h3>Interior Works & Elevation</h3>
+                                <p>Sophisticated 3D elevation designs, interior styling, custom gypsum work, modern
+                                    painting, and premium home styling.</p>
+                            </div>
+                            <div class="service-number">03</div>
+                        </div>
+                        <div class="service-card-side service-card-back">
+                            <h3>Inspiring Exteriors</h3>
+                            <p>We craft stunning exterior facades and modern elevation plans that make your property a
+                                landmark in your neighborhood.</p>
+                            <a href="#booking" class="btn-gold">Request Info</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!-- Floating Boundary Arrow Button -->
-            <a href="#showcase" class="hero-split-btn" aria-label="Scroll to portfolio">
-                <i class="fa-solid fa-arrow-right" style="transform: rotate(-45deg); font-size: 1.6rem;"></i>
+        </section>
+
+        <!-- 3D Rotating Showcase Portfolio -->
+        <section id="showcase">
+            <div class="section-header">
+                <span class="tag">Showcase Gallery</span>
+                <h2>3D Portfolio Display</h2>
+            </div>
+
+            <div class="showcase-container">
+                <div class="carousel-3d" id="showcaseCarousel">
+                    <!-- 5 3D Items -->
+                    <div class="carousel-item-3d" style="background-image: url('images/p1.jpg');">
+                        <div class="carousel-item-info">
+                            <h3>Royal Horizon Estate</h3>
+                            <p>Villa Construction</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item-3d" style="background-image: url('images/p2.jpg');">
+                        <div class="carousel-item-info">
+                            <h3>Lux Minimalist Kitchen</h3>
+                            <p>Interior Styling</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item-3d" style="background-image: url('images/p3.jpg');">
+                        <div class="carousel-item-info">
+                            <h3>Grand Plaza Lobby</h3>
+                            <p>Commercial Construction</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item-3d" style="background-image: url('images/p4.jpg');">
+                        <div class="carousel-item-info">
+                            <h3>Obsidian Residence</h3>
+                            <p>Urban Architecture</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item-3d" style="background-image: url('images/p5.jpg');">
+                        <div class="carousel-item-info">
+                            <h3>Marmoreal Living Room</h3>
+                            <p>Luxury Interior</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-controls">
+                    <button class="ctrl-btn" id="prevBtn" aria-label="Previous Showcase Project"><i
+                            class="fa-solid fa-chevron-left"></i></button>
+                    <button class="ctrl-btn" id="nextBtn" aria-label="Next Showcase Project"><i
+                            class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Instagram Sample Works Promotion Section -->
+        <section id="instagram-showcase" class="instagram-banner">
+            <div class="instagram-icon-wrapper">
+                <i class="fa-brands fa-instagram"></i>
+            </div>
+            <h3>Explore Our Work on Instagram</h3>
+            <p>
+                We regularly post updates on our active building construction layouts, interior painting works,
+                structural
+                detailing, and newly completed projects in Jagtial. Follow our page for real-time site updates.
+            </p>
+            <a href="https://instagram.com/rajaiahconstruction26" target="_blank" class="btn-gold">
+                <i class="fa-brands fa-instagram"></i> View @rajaiahconstruction26
             </a>
-        </div>
-        
-        <!-- Right visual column -->
-        <div class="hero-right"></div>
-    </section>
+        </section>
 
-    <!-- Services Section with 3D Rotate/Flip Cards -->
-    <section id="services">
-        <div class="section-header">
-            <span class="tag">Our Expertise</span>
-            <h2>Architectural Offerings</h2>
-        </div>
-        
-        <div class="services-grid">
-            <!-- Card 1: Vastu & 3D Designs -->
-            <div class="service-card-wrapper">
-                <div class="service-card-3d">
-                    <div class="service-card-side service-card-front">
-                        <div class="service-icon"><i class="fa-solid fa-compass-drafting"></i></div>
-                        <div>
-                            <h3>Vastu & 3D Designs</h3>
-                            <p>Precise 2D Vastu planning, custom structural blueprints, and gorgeous 3D visualization layouts tailored for modern aesthetics.</p>
+        <!-- Before / After Room Renovation Slider -->
+        <section id="renovation">
+            <div class="slider-wrapper">
+                <div class="slider-description">
+                    <span class="tag">Transformation</span>
+                    <h3>Before & After</h3>
+                    <p>Drag the slider bar to witness a spectacular design transformation. We take empty, outdated, or
+                        raw
+                        structures and completely remodel them into luxury, state-of-the-art living areas.</p>
+                    <p>Our remodeling process is highly structured: starting from site inspection, detailed 3D
+                        visualization, material curation, and swift, clean installation.</p>
+                    <a href="#booking" class="btn-gold"><i class="fa-solid fa-calendar-check"></i> Schedule
+                        Renovation</a>
+                </div>
+
+                <!-- Before/After Slider Core Element -->
+                <div class="slider-container" id="beforeAfterSlider">
+                    <div class="slider-image image-before"></div>
+                    <div class="slider-image image-after" id="afterImage"></div>
+                    <div class="slider-bar" id="sliderBar">
+                        <div class="slider-handle"><i class="fa-solid fa-arrows-left-right"></i></div>
+                    </div>
+                    <div class="slider-label label-before">Before</div>
+                    <div class="slider-label label-after">After</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Glassmorphic Booking and Contact Form -->
+        <section id="booking">
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-info-block">
+                        <span class="tag">Get in Touch</span>
+                        <h3>Start Your Project</h3>
+                        <p>Under the leadership of Boddula Pruthvi Raj, MR Construction specializes in end-to-end
+                            building
+                            construction (with or without material supply), interior works, painting, 2D Vastu plans,
+                            and 3D
+                            elevation designs in Jagtial. Get in touch to shape your vision.</p>
+                    </div>
+
+                    <div>
+                        <div class="info-item">
+                            <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="info-text">
+                                <h4>Phone / Mobile</h4>
+                                <p>+91 8978010771<br>+91 8979888789</p>
+                            </div>
                         </div>
-                        <div class="service-number">01</div>
-                    </div>
-                    <div class="service-card-side service-card-back">
-                        <h3>Vastu Compliance</h3>
-                        <p>We specialize in designing traditional and modern houses perfectly aligned with Vastu principles to bring peace and prosperity.</p>
-                        <a href="#booking" class="btn-gold">Request Info</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 2: End-to-End Construction -->
-            <div class="service-card-wrapper">
-                <div class="service-card-3d">
-                    <div class="service-card-side service-card-front">
-                        <div class="service-icon"><i class="fa-solid fa-trowel-bricks"></i></div>
-                        <div>
-                            <h3>End-to-End Construction</h3>
-                            <p>Providing premium residential and commercial construction services, offered both with and without material supply.</p>
+                        <div class="info-item">
+                            <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div class="info-text">
+                                <h4>Mail</h4>
+                                <p>mittapallirajaiah26@gmail.com</p>
+                            </div>
                         </div>
-                        <div class="service-number">02</div>
-                    </div>
-                    <div class="service-card-side service-card-back">
-                        <h3>Flexible Contracts</h3>
-                        <p>Whether you choose labor-only contracts or full material-inclusive turnkey services, we deliver superior quality building execution.</p>
-                        <a href="#booking" class="btn-gold">Request Info</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Card 3: Interior Works & Elevation -->
-            <div class="service-card-wrapper">
-                <div class="service-card-3d">
-                    <div class="service-card-side service-card-front">
-                        <div class="service-icon"><i class="fa-solid fa-couch"></i></div>
-                        <div>
-                            <h3>Interior Works & Elevation</h3>
-                            <p>Sophisticated 3D elevation designs, interior styling, custom gypsum work, modern painting, and premium home styling.</p>
+                        <div class="info-item">
+                            <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="info-text">
+                                <h4>Location</h4>
+                                <p>Near VKB function hall, Govindupalli, Jagtial, Telangana</p>
+                            </div>
                         </div>
-                        <div class="service-number">03</div>
-                    </div>
-                    <div class="service-card-side service-card-back">
-                        <h3>Inspiring Exteriors</h3>
-                        <p>We craft stunning exterior facades and modern elevation plans that make your property a landmark in your neighborhood.</p>
-                        <a href="#booking" class="btn-gold">Request Info</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 3D Rotating Showcase Portfolio -->
-    <section id="showcase">
-        <div class="section-header">
-            <span class="tag">Showcase Gallery</span>
-            <h2>3D Portfolio Display</h2>
-        </div>
-        
-        <div class="showcase-container">
-            <div class="carousel-3d" id="showcaseCarousel">
-                <!-- 5 3D Items -->
-                <div class="carousel-item-3d" style="background-image: url('images/p1.jpg');">
-                    <div class="carousel-item-info">
-                        <h4>Royal Horizon Estate</h4>
-                        <p>Villa Construction</p>
-                    </div>
-                </div>
-                <div class="carousel-item-3d" style="background-image: url('images/p2.jpg');">
-                    <div class="carousel-item-info">
-                        <h4>Lux Minimalist Kitchen</h4>
-                        <p>Interior Styling</p>
-                    </div>
-                </div>
-                <div class="carousel-item-3d" style="background-image: url('images/p3.jpg');">
-                    <div class="carousel-item-info">
-                        <h4>Grand Plaza Lobby</h4>
-                        <p>Commercial Construction</p>
-                    </div>
-                </div>
-                <div class="carousel-item-3d" style="background-image: url('images/p4.jpg');">
-                    <div class="carousel-item-info">
-                        <h4>Obsidian Residence</h4>
-                        <p>Urban Architecture</p>
-                    </div>
-                </div>
-                <div class="carousel-item-3d" style="background-image: url('images/p5.jpg');">
-                    <div class="carousel-item-info">
-                        <h4>Marmoreal Living Room</h4>
-                        <p>Luxury Interior</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="carousel-controls">
-                <button class="ctrl-btn" id="prevBtn" aria-label="Previous Showcase Project"><i class="fa-solid fa-chevron-left"></i></button>
-                <button class="ctrl-btn" id="nextBtn" aria-label="Next Showcase Project"><i class="fa-solid fa-chevron-right"></i></button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Instagram Sample Works Promotion Section -->
-    <section id="instagram-showcase" class="instagram-banner">
-        <div class="instagram-icon-wrapper">
-            <i class="fa-brands fa-instagram"></i>
-        </div>
-        <h3>Explore Our Work on Instagram</h3>
-        <p>
-            We regularly post updates on our active building construction layouts, interior painting works, structural detailing, and newly completed projects in Jagtial. Follow our page for real-time site updates.
-        </p>
-        <a href="https://instagram.com/rajaiahconstruction26" target="_blank" class="btn-gold">
-            <i class="fa-brands fa-instagram"></i> View @rajaiahconstruction26
-        </a>
-    </section>
-
-    <!-- Before / After Room Renovation Slider -->
-    <section id="renovation">
-        <div class="slider-wrapper">
-            <div class="slider-description">
-                <span class="tag">Transformation</span>
-                <h3>Before & After</h3>
-                <p>Drag the slider bar to witness a spectacular design transformation. We take empty, outdated, or raw structures and completely remodel them into luxury, state-of-the-art living areas.</p>
-                <p>Our remodeling process is highly structured: starting from site inspection, detailed 3D visualization, material curation, and swift, clean installation.</p>
-                <a href="#booking" class="btn-gold"><i class="fa-solid fa-calendar-check"></i> Schedule Renovation</a>
-            </div>
-            
-            <!-- Before/After Slider Core Element -->
-            <div class="slider-container" id="beforeAfterSlider">
-                <div class="slider-image image-before"></div>
-                <div class="slider-image image-after" id="afterImage"></div>
-                <div class="slider-bar" id="sliderBar">
-                    <div class="slider-handle"><i class="fa-solid fa-arrows-left-right"></i></div>
-                </div>
-                <div class="slider-label label-before">Before</div>
-                <div class="slider-label label-after">After</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Glassmorphic Booking and Contact Form -->
-    <section id="booking">
-        <div class="contact-container">
-            <div class="contact-info">
-                <div class="contact-info-block">
-                    <span class="tag">Get in Touch</span>
-                    <h3>Start Your Project</h3>
-                    <p>Under the leadership of Boddula Pruthvi Raj, MR Construction specializes in end-to-end building construction (with or without material supply), interior works, painting, 2D Vastu plans, and 3D elevation designs in Jagtial. Get in touch to shape your vision.</p>
-                </div>
-                
-                <div>
-                    <div class="info-item">
-                        <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
-                        <div class="info-text">
-                            <h4>Phone / Mobile</h4>
-                            <p>+91 8978010771<br>+91 8979888789</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
-                        <div class="info-text">
-                            <h4>Mail</h4>
-                            <p>mittapallirajaiah26@gmail.com</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
-                        <div class="info-text">
-                            <h4>Location</h4>
-                            <p>Near VKB function hall, Govindupalli, Jagtial, Telangana</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon"><i class="fa-brands fa-whatsapp"></i></div>
-                        <div class="info-text">
-                            <h4>WhatsApp</h4>
-                            <p><a href="https://wa.me/918979888789?text=Hello%20MR%20Construction%2C%20I%20am%20interested%20in%20your%20services%20and%20would%20like%20to%20discuss%20a%20project%20requirement%20with%20you." target="_blank" style="color: var(--accent-gold); font-weight: 600; text-decoration: underline; text-underline-offset: 4px; transition: color 0.3s;" onmouseover="this.style.color='var(--text-pure)'" onmouseout="this.style.color='var(--accent-gold)'">Quick Response <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.7rem; margin-left: 5px;"></i></a></p>
+                        <div class="info-item">
+                            <div class="info-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                            <div class="info-text">
+                                <h4>WhatsApp</h4>
+                                <p><a href="https://wa.me/918979888789?text=Hello%20MR%20Construction%2C%20I%20am%20interested%20in%20your%20services%20and%20would%20like%20to%20discuss%20a%20project%20requirement%20with%20you."
+                                        target="_blank"
+                                        style="color: var(--accent-gold); font-weight: 600; text-decoration: underline; text-underline-offset: 4px; transition: color 0.3s;"
+                                        onmouseover="this.style.color='var(--text-pure)'"
+                                        onmouseout="this.style.color='var(--accent-gold)'">Quick Response <i
+                                            class="fa-solid fa-arrow-up-right-from-square"
+                                            style="font-size: 0.7rem; margin-left: 5px;"></i></a></p>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <div class="booking-form-card">
+                    <h3 class="form-title">Consultation Booking</h3>
+                    <!-- GOOGLE FORM EMBED SECTION -->
+                    <!-- To use your own Google Form: -->
+                    <!-- 1. Open your Google Form. -->
+                    <!-- 2. Click the 'Send' button (top right). -->
+                    <!-- 3. Click the '< >' icon (Embed HTML code). -->
+                    <!-- 4. Copy the link URL in the 'src="..."' attribute. -->
+                    <!-- 5. Paste it in place of the 'src="..."' URL in the iframe below. -->
+                    <form id="consultationForm" novalidate onsubmit="return false;">
+                        <div class="form-group">
+                            <input type="text" class="form-input" id="clientName" autocomplete="name" placeholder=" ">
+                            <label class="form-label" for="clientName">Full Name <span
+                                    style="color: #ff5252;">*</span></label>
+                            <div class="error-message" id="nameError">Please enter your full name (at least 3
+                                characters).
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-input" id="clientEmail" autocomplete="email" placeholder=" ">
+                            <label class="form-label" for="clientEmail">Email Address <span
+                                    style="color: #ff5252;">*</span></label>
+                            <div class="error-message" id="emailError">Please enter a valid email address.</div>
+                        </div>
+
+                        <div style="display: flex; gap: 15px; margin-bottom: 30px;">
+                            <div class="form-group" style="width: 100px; margin-bottom: 0;">
+                                <select class="form-input" id="clientCountryCode"
+                                    style="padding-left: 10px; cursor: pointer;">
+
+                                    <option value="+93" style="background-color: #11141b; color: #fff;">+93 (AF)
+                                    </option>
+                                    <option value="+355" style="background-color: #11141b; color: #fff;">+355 (AL)
+                                    </option>
+                                    <option value="+213" style="background-color: #11141b; color: #fff;">+213 (DZ)
+                                    </option>
+                                    <option value="+1-684" style="background-color: #11141b; color: #fff;">+1-684 (AS)
+                                    </option>
+                                    <option value="+376" style="background-color: #11141b; color: #fff;">+376 (AD)
+                                    </option>
+                                    <option value="+244" style="background-color: #11141b; color: #fff;">+244 (AO)
+                                    </option>
+                                    <option value="+1-264" style="background-color: #11141b; color: #fff;">+1-264 (AI)
+                                    </option>
+                                    <option value="+672" style="background-color: #11141b; color: #fff;">+672 (AQ)
+                                    </option>
+                                    <option value="+1-268" style="background-color: #11141b; color: #fff;">+1-268 (AG)
+                                    </option>
+                                    <option value="+54" style="background-color: #11141b; color: #fff;">+54 (AR)
+                                    </option>
+                                    <option value="+374" style="background-color: #11141b; color: #fff;">+374 (AM)
+                                    </option>
+                                    <option value="+297" style="background-color: #11141b; color: #fff;">+297 (AW)
+                                    </option>
+                                    <option value="+61" style="background-color: #11141b; color: #fff;">+61 (AU)
+                                    </option>
+                                    <option value="+43" style="background-color: #11141b; color: #fff;">+43 (AT)
+                                    </option>
+                                    <option value="+994" style="background-color: #11141b; color: #fff;">+994 (AZ)
+                                    </option>
+                                    <option value="+1-242" style="background-color: #11141b; color: #fff;">+1-242 (BS)
+                                    </option>
+                                    <option value="+973" style="background-color: #11141b; color: #fff;">+973 (BH)
+                                    </option>
+                                    <option value="+880" style="background-color: #11141b; color: #fff;">+880 (BD)
+                                    </option>
+                                    <option value="+1-246" style="background-color: #11141b; color: #fff;">+1-246 (BB)
+                                    </option>
+                                    <option value="+375" style="background-color: #11141b; color: #fff;">+375 (BY)
+                                    </option>
+                                    <option value="+32" style="background-color: #11141b; color: #fff;">+32 (BE)
+                                    </option>
+                                    <option value="+501" style="background-color: #11141b; color: #fff;">+501 (BZ)
+                                    </option>
+                                    <option value="+229" style="background-color: #11141b; color: #fff;">+229 (BJ)
+                                    </option>
+                                    <option value="+1-441" style="background-color: #11141b; color: #fff;">+1-441 (BM)
+                                    </option>
+                                    <option value="+975" style="background-color: #11141b; color: #fff;">+975 (BT)
+                                    </option>
+                                    <option value="+591" style="background-color: #11141b; color: #fff;">+591 (BO)
+                                    </option>
+                                    <option value="+387" style="background-color: #11141b; color: #fff;">+387 (BA)
+                                    </option>
+                                    <option value="+267" style="background-color: #11141b; color: #fff;">+267 (BW)
+                                    </option>
+                                    <option value="+55" style="background-color: #11141b; color: #fff;">+55 (BR)
+                                    </option>
+                                    <option value="+246" style="background-color: #11141b; color: #fff;">+246 (IO)
+                                    </option>
+                                    <option value="+1-284" style="background-color: #11141b; color: #fff;">+1-284 (VG)
+                                    </option>
+                                    <option value="+673" style="background-color: #11141b; color: #fff;">+673 (BN)
+                                    </option>
+                                    <option value="+359" style="background-color: #11141b; color: #fff;">+359 (BG)
+                                    </option>
+                                    <option value="+226" style="background-color: #11141b; color: #fff;">+226 (BF)
+                                    </option>
+                                    <option value="+257" style="background-color: #11141b; color: #fff;">+257 (BI)
+                                    </option>
+                                    <option value="+855" style="background-color: #11141b; color: #fff;">+855 (KH)
+                                    </option>
+                                    <option value="+237" style="background-color: #11141b; color: #fff;">+237 (CM)
+                                    </option>
+                                    <option value="+1" style="background-color: #11141b; color: #fff;">+1 (CA)</option>
+                                    <option value="+238" style="background-color: #11141b; color: #fff;">+238 (CV)
+                                    </option>
+                                    <option value="+1-345" style="background-color: #11141b; color: #fff;">+1-345 (KY)
+                                    </option>
+                                    <option value="+236" style="background-color: #11141b; color: #fff;">+236 (CF)
+                                    </option>
+                                    <option value="+235" style="background-color: #11141b; color: #fff;">+235 (TD)
+                                    </option>
+                                    <option value="+56" style="background-color: #11141b; color: #fff;">+56 (CL)
+                                    </option>
+                                    <option value="+86" style="background-color: #11141b; color: #fff;">+86 (CN)
+                                    </option>
+                                    <option value="+61" style="background-color: #11141b; color: #fff;">+61 (CX)
+                                    </option>
+                                    <option value="+61" style="background-color: #11141b; color: #fff;">+61 (CC)
+                                    </option>
+                                    <option value="+57" style="background-color: #11141b; color: #fff;">+57 (CO)
+                                    </option>
+                                    <option value="+269" style="background-color: #11141b; color: #fff;">+269 (KM)
+                                    </option>
+                                    <option value="+682" style="background-color: #11141b; color: #fff;">+682 (CK)
+                                    </option>
+                                    <option value="+506" style="background-color: #11141b; color: #fff;">+506 (CR)
+                                    </option>
+                                    <option value="+385" style="background-color: #11141b; color: #fff;">+385 (HR)
+                                    </option>
+                                    <option value="+53" style="background-color: #11141b; color: #fff;">+53 (CU)
+                                    </option>
+                                    <option value="+599" style="background-color: #11141b; color: #fff;">+599 (CW)
+                                    </option>
+                                    <option value="+357" style="background-color: #11141b; color: #fff;">+357 (CY)
+                                    </option>
+                                    <option value="+420" style="background-color: #11141b; color: #fff;">+420 (CZ)
+                                    </option>
+                                    <option value="+243" style="background-color: #11141b; color: #fff;">+243 (CD)
+                                    </option>
+                                    <option value="+45" style="background-color: #11141b; color: #fff;">+45 (DK)
+                                    </option>
+                                    <option value="+253" style="background-color: #11141b; color: #fff;">+253 (DJ)
+                                    </option>
+                                    <option value="+1-767" style="background-color: #11141b; color: #fff;">+1-767 (DM)
+                                    </option>
+                                    <option value="+1-809" style="background-color: #11141b; color: #fff;">+1-809 (DO)
+                                    </option>
+                                    <option value="+670" style="background-color: #11141b; color: #fff;">+670 (TL)
+                                    </option>
+                                    <option value="+593" style="background-color: #11141b; color: #fff;">+593 (EC)
+                                    </option>
+                                    <option value="+20" style="background-color: #11141b; color: #fff;">+20 (EG)
+                                    </option>
+                                    <option value="+503" style="background-color: #11141b; color: #fff;">+503 (SV)
+                                    </option>
+                                    <option value="+240" style="background-color: #11141b; color: #fff;">+240 (GQ)
+                                    </option>
+                                    <option value="+291" style="background-color: #11141b; color: #fff;">+291 (ER)
+                                    </option>
+                                    <option value="+372" style="background-color: #11141b; color: #fff;">+372 (EE)
+                                    </option>
+                                    <option value="+251" style="background-color: #11141b; color: #fff;">+251 (ET)
+                                    </option>
+                                    <option value="+500" style="background-color: #11141b; color: #fff;">+500 (FK)
+                                    </option>
+                                    <option value="+298" style="background-color: #11141b; color: #fff;">+298 (FO)
+                                    </option>
+                                    <option value="+679" style="background-color: #11141b; color: #fff;">+679 (FJ)
+                                    </option>
+                                    <option value="+358" style="background-color: #11141b; color: #fff;">+358 (FI)
+                                    </option>
+                                    <option value="+33" style="background-color: #11141b; color: #fff;">+33 (FR)
+                                    </option>
+                                    <option value="+689" style="background-color: #11141b; color: #fff;">+689 (PF)
+                                    </option>
+                                    <option value="+241" style="background-color: #11141b; color: #fff;">+241 (GA)
+                                    </option>
+                                    <option value="+220" style="background-color: #11141b; color: #fff;">+220 (GM)
+                                    </option>
+                                    <option value="+995" style="background-color: #11141b; color: #fff;">+995 (GE)
+                                    </option>
+                                    <option value="+49" style="background-color: #11141b; color: #fff;">+49 (DE)
+                                    </option>
+                                    <option value="+233" style="background-color: #11141b; color: #fff;">+233 (GH)
+                                    </option>
+                                    <option value="+350" style="background-color: #11141b; color: #fff;">+350 (GI)
+                                    </option>
+                                    <option value="+30" style="background-color: #11141b; color: #fff;">+30 (GR)
+                                    </option>
+                                    <option value="+299" style="background-color: #11141b; color: #fff;">+299 (GL)
+                                    </option>
+                                    <option value="+1-473" style="background-color: #11141b; color: #fff;">+1-473 (GD)
+                                    </option>
+                                    <option value="+1-671" style="background-color: #11141b; color: #fff;">+1-671 (GU)
+                                    </option>
+                                    <option value="+502" style="background-color: #11141b; color: #fff;">+502 (GT)
+                                    </option>
+                                    <option value="+44" style="background-color: #11141b; color: #fff;">+44 (GG)
+                                    </option>
+                                    <option value="+224" style="background-color: #11141b; color: #fff;">+224 (GN)
+                                    </option>
+                                    <option value="+245" style="background-color: #11141b; color: #fff;">+245 (GW)
+                                    </option>
+                                    <option value="+592" style="background-color: #11141b; color: #fff;">+592 (GY)
+                                    </option>
+                                    <option value="+509" style="background-color: #11141b; color: #fff;">+509 (HT)
+                                    </option>
+                                    <option value="+504" style="background-color: #11141b; color: #fff;">+504 (HN)
+                                    </option>
+                                    <option value="+852" style="background-color: #11141b; color: #fff;">+852 (HK)
+                                    </option>
+                                    <option value="+36" style="background-color: #11141b; color: #fff;">+36 (HU)
+                                    </option>
+                                    <option value="+354" style="background-color: #11141b; color: #fff;">+354 (IS)
+                                    </option>
+                                    <option value="+91" style="background-color: #11141b; color: #fff;" selected>+91
+                                        (IN)</option>
+                                    <option value="+62" style="background-color: #11141b; color: #fff;">+62 (ID)
+                                    </option>
+                                    <option value="+98" style="background-color: #11141b; color: #fff;">+98 (IR)
+                                    </option>
+                                    <option value="+964" style="background-color: #11141b; color: #fff;">+964 (IQ)
+                                    </option>
+                                    <option value="+353" style="background-color: #11141b; color: #fff;">+353 (IE)
+                                    </option>
+                                    <option value="+44" style="background-color: #11141b; color: #fff;">+44 (IM)
+                                    </option>
+                                    <option value="+972" style="background-color: #11141b; color: #fff;">+972 (IL)
+                                    </option>
+                                    <option value="+39" style="background-color: #11141b; color: #fff;">+39 (IT)
+                                    </option>
+                                    <option value="+225" style="background-color: #11141b; color: #fff;">+225 (CI)
+                                    </option>
+                                    <option value="+1-876" style="background-color: #11141b; color: #fff;">+1-876 (JM)
+                                    </option>
+                                    <option value="+81" style="background-color: #11141b; color: #fff;">+81 (JP)
+                                    </option>
+                                    <option value="+44" style="background-color: #11141b; color: #fff;">+44 (JE)
+                                    </option>
+                                    <option value="+962" style="background-color: #11141b; color: #fff;">+962 (JO)
+                                    </option>
+                                    <option value="+7" style="background-color: #11141b; color: #fff;">+7 (KZ)</option>
+                                    <option value="+254" style="background-color: #11141b; color: #fff;">+254 (KE)
+                                    </option>
+                                    <option value="+686" style="background-color: #11141b; color: #fff;">+686 (KI)
+                                    </option>
+                                    <option value="+383" style="background-color: #11141b; color: #fff;">+383 (XK)
+                                    </option>
+                                    <option value="+965" style="background-color: #11141b; color: #fff;">+965 (KW)
+                                    </option>
+                                    <option value="+996" style="background-color: #11141b; color: #fff;">+996 (KG)
+                                    </option>
+                                    <option value="+856" style="background-color: #11141b; color: #fff;">+856 (LA)
+                                    </option>
+                                    <option value="+371" style="background-color: #11141b; color: #fff;">+371 (LV)
+                                    </option>
+                                    <option value="+961" style="background-color: #11141b; color: #fff;">+961 (LB)
+                                    </option>
+                                    <option value="+266" style="background-color: #11141b; color: #fff;">+266 (LS)
+                                    </option>
+                                    <option value="+231" style="background-color: #11141b; color: #fff;">+231 (LR)
+                                    </option>
+                                    <option value="+218" style="background-color: #11141b; color: #fff;">+218 (LY)
+                                    </option>
+                                    <option value="+423" style="background-color: #11141b; color: #fff;">+423 (LI)
+                                    </option>
+                                    <option value="+370" style="background-color: #11141b; color: #fff;">+370 (LT)
+                                    </option>
+                                    <option value="+352" style="background-color: #11141b; color: #fff;">+352 (LU)
+                                    </option>
+                                    <option value="+853" style="background-color: #11141b; color: #fff;">+853 (MO)
+                                    </option>
+                                    <option value="+389" style="background-color: #11141b; color: #fff;">+389 (MK)
+                                    </option>
+                                    <option value="+261" style="background-color: #11141b; color: #fff;">+261 (MG)
+                                    </option>
+                                    <option value="+265" style="background-color: #11141b; color: #fff;">+265 (MW)
+                                    </option>
+                                    <option value="+60" style="background-color: #11141b; color: #fff;">+60 (MY)
+                                    </option>
+                                    <option value="+960" style="background-color: #11141b; color: #fff;">+960 (MV)
+                                    </option>
+                                    <option value="+223" style="background-color: #11141b; color: #fff;">+223 (ML)
+                                    </option>
+                                    <option value="+356" style="background-color: #11141b; color: #fff;">+356 (MT)
+                                    </option>
+                                    <option value="+692" style="background-color: #11141b; color: #fff;">+692 (MH)
+                                    </option>
+                                    <option value="+222" style="background-color: #11141b; color: #fff;">+222 (MR)
+                                    </option>
+                                    <option value="+230" style="background-color: #11141b; color: #fff;">+230 (MU)
+                                    </option>
+                                    <option value="+262" style="background-color: #11141b; color: #fff;">+262 (YT)
+                                    </option>
+                                    <option value="+52" style="background-color: #11141b; color: #fff;">+52 (MX)
+                                    </option>
+                                    <option value="+691" style="background-color: #11141b; color: #fff;">+691 (FM)
+                                    </option>
+                                    <option value="+373" style="background-color: #11141b; color: #fff;">+373 (MD)
+                                    </option>
+                                    <option value="+377" style="background-color: #11141b; color: #fff;">+377 (MC)
+                                    </option>
+                                    <option value="+976" style="background-color: #11141b; color: #fff;">+976 (MN)
+                                    </option>
+                                    <option value="+382" style="background-color: #11141b; color: #fff;">+382 (ME)
+                                    </option>
+                                    <option value="+1-664" style="background-color: #11141b; color: #fff;">+1-664 (MS)
+                                    </option>
+                                    <option value="+212" style="background-color: #11141b; color: #fff;">+212 (MA)
+                                    </option>
+                                    <option value="+258" style="background-color: #11141b; color: #fff;">+258 (MZ)
+                                    </option>
+                                    <option value="+95" style="background-color: #11141b; color: #fff;">+95 (MM)
+                                    </option>
+                                    <option value="+264" style="background-color: #11141b; color: #fff;">+264 (NA)
+                                    </option>
+                                    <option value="+674" style="background-color: #11141b; color: #fff;">+674 (NR)
+                                    </option>
+                                    <option value="+977" style="background-color: #11141b; color: #fff;">+977 (NP)
+                                    </option>
+                                    <option value="+31" style="background-color: #11141b; color: #fff;">+31 (NL)
+                                    </option>
+                                    <option value="+599" style="background-color: #11141b; color: #fff;">+599 (AN)
+                                    </option>
+                                    <option value="+687" style="background-color: #11141b; color: #fff;">+687 (NC)
+                                    </option>
+                                    <option value="+64" style="background-color: #11141b; color: #fff;">+64 (NZ)
+                                    </option>
+                                    <option value="+505" style="background-color: #11141b; color: #fff;">+505 (NI)
+                                    </option>
+                                    <option value="+227" style="background-color: #11141b; color: #fff;">+227 (NE)
+                                    </option>
+                                    <option value="+234" style="background-color: #11141b; color: #fff;">+234 (NG)
+                                    </option>
+                                    <option value="+683" style="background-color: #11141b; color: #fff;">+683 (NU)
+                                    </option>
+                                    <option value="+850" style="background-color: #11141b; color: #fff;">+850 (KP)
+                                    </option>
+                                    <option value="+1-670" style="background-color: #11141b; color: #fff;">+1-670 (MP)
+                                    </option>
+                                    <option value="+47" style="background-color: #11141b; color: #fff;">+47 (NO)
+                                    </option>
+                                    <option value="+968" style="background-color: #11141b; color: #fff;">+968 (OM)
+                                    </option>
+                                    <option value="+92" style="background-color: #11141b; color: #fff;">+92 (PK)
+                                    </option>
+                                    <option value="+680" style="background-color: #11141b; color: #fff;">+680 (PW)
+                                    </option>
+                                    <option value="+970" style="background-color: #11141b; color: #fff;">+970 (PS)
+                                    </option>
+                                    <option value="+507" style="background-color: #11141b; color: #fff;">+507 (PA)
+                                    </option>
+                                    <option value="+675" style="background-color: #11141b; color: #fff;">+675 (PG)
+                                    </option>
+                                    <option value="+595" style="background-color: #11141b; color: #fff;">+595 (PY)
+                                    </option>
+                                    <option value="+51" style="background-color: #11141b; color: #fff;">+51 (PE)
+                                    </option>
+                                    <option value="+63" style="background-color: #11141b; color: #fff;">+63 (PH)
+                                    </option>
+                                    <option value="+64" style="background-color: #11141b; color: #fff;">+64 (PN)
+                                    </option>
+                                    <option value="+48" style="background-color: #11141b; color: #fff;">+48 (PL)
+                                    </option>
+                                    <option value="+351" style="background-color: #11141b; color: #fff;">+351 (PT)
+                                    </option>
+                                    <option value="+1-787" style="background-color: #11141b; color: #fff;">+1-787 (PR)
+                                    </option>
+                                    <option value="+974" style="background-color: #11141b; color: #fff;">+974 (QA)
+                                    </option>
+                                    <option value="+242" style="background-color: #11141b; color: #fff;">+242 (CG)
+                                    </option>
+                                    <option value="+262" style="background-color: #11141b; color: #fff;">+262 (RE)
+                                    </option>
+                                    <option value="+40" style="background-color: #11141b; color: #fff;">+40 (RO)
+                                    </option>
+                                    <option value="+7" style="background-color: #11141b; color: #fff;">+7 (RU)</option>
+                                    <option value="+250" style="background-color: #11141b; color: #fff;">+250 (RW)
+                                    </option>
+                                    <option value="+590" style="background-color: #11141b; color: #fff;">+590 (BL)
+                                    </option>
+                                    <option value="+290" style="background-color: #11141b; color: #fff;">+290 (SH)
+                                    </option>
+                                    <option value="+1-869" style="background-color: #11141b; color: #fff;">+1-869 (KN)
+                                    </option>
+                                    <option value="+1-758" style="background-color: #11141b; color: #fff;">+1-758 (LC)
+                                    </option>
+                                    <option value="+590" style="background-color: #11141b; color: #fff;">+590 (MF)
+                                    </option>
+                                    <option value="+508" style="background-color: #11141b; color: #fff;">+508 (PM)
+                                    </option>
+                                    <option value="+1-784" style="background-color: #11141b; color: #fff;">+1-784 (VC)
+                                    </option>
+                                    <option value="+685" style="background-color: #11141b; color: #fff;">+685 (WS)
+                                    </option>
+                                    <option value="+378" style="background-color: #11141b; color: #fff;">+378 (SM)
+                                    </option>
+                                    <option value="+239" style="background-color: #11141b; color: #fff;">+239 (ST)
+                                    </option>
+                                    <option value="+966" style="background-color: #11141b; color: #fff;">+966 (SA)
+                                    </option>
+                                    <option value="+221" style="background-color: #11141b; color: #fff;">+221 (SN)
+                                    </option>
+                                    <option value="+381" style="background-color: #11141b; color: #fff;">+381 (RS)
+                                    </option>
+                                    <option value="+248" style="background-color: #11141b; color: #fff;">+248 (SC)
+                                    </option>
+                                    <option value="+232" style="background-color: #11141b; color: #fff;">+232 (SL)
+                                    </option>
+                                    <option value="+65" style="background-color: #11141b; color: #fff;">+65 (SG)
+                                    </option>
+                                    <option value="+1-721" style="background-color: #11141b; color: #fff;">+1-721 (SX)
+                                    </option>
+                                    <option value="+421" style="background-color: #11141b; color: #fff;">+421 (SK)
+                                    </option>
+                                    <option value="+386" style="background-color: #11141b; color: #fff;">+386 (SI)
+                                    </option>
+                                    <option value="+677" style="background-color: #11141b; color: #fff;">+677 (SB)
+                                    </option>
+                                    <option value="+252" style="background-color: #11141b; color: #fff;">+252 (SO)
+                                    </option>
+                                    <option value="+27" style="background-color: #11141b; color: #fff;">+27 (ZA)
+                                    </option>
+                                    <option value="+82" style="background-color: #11141b; color: #fff;">+82 (KR)
+                                    </option>
+                                    <option value="+211" style="background-color: #11141b; color: #fff;">+211 (SS)
+                                    </option>
+                                    <option value="+34" style="background-color: #11141b; color: #fff;">+34 (ES)
+                                    </option>
+                                    <option value="+94" style="background-color: #11141b; color: #fff;">+94 (LK)
+                                    </option>
+                                    <option value="+249" style="background-color: #11141b; color: #fff;">+249 (SD)
+                                    </option>
+                                    <option value="+597" style="background-color: #11141b; color: #fff;">+597 (SR)
+                                    </option>
+                                    <option value="+47" style="background-color: #11141b; color: #fff;">+47 (SJ)
+                                    </option>
+                                    <option value="+268" style="background-color: #11141b; color: #fff;">+268 (SZ)
+                                    </option>
+                                    <option value="+46" style="background-color: #11141b; color: #fff;">+46 (SE)
+                                    </option>
+                                    <option value="+41" style="background-color: #11141b; color: #fff;">+41 (CH)
+                                    </option>
+                                    <option value="+963" style="background-color: #11141b; color: #fff;">+963 (SY)
+                                    </option>
+                                    <option value="+886" style="background-color: #11141b; color: #fff;">+886 (TW)
+                                    </option>
+                                    <option value="+992" style="background-color: #11141b; color: #fff;">+992 (TJ)
+                                    </option>
+                                    <option value="+255" style="background-color: #11141b; color: #fff;">+255 (TZ)
+                                    </option>
+                                    <option value="+66" style="background-color: #11141b; color: #fff;">+66 (TH)
+                                    </option>
+                                    <option value="+228" style="background-color: #11141b; color: #fff;">+228 (TG)
+                                    </option>
+                                    <option value="+690" style="background-color: #11141b; color: #fff;">+690 (TK)
+                                    </option>
+                                    <option value="+676" style="background-color: #11141b; color: #fff;">+676 (TO)
+                                    </option>
+                                    <option value="+1-868" style="background-color: #11141b; color: #fff;">+1-868 (TT)
+                                    </option>
+                                    <option value="+216" style="background-color: #11141b; color: #fff;">+216 (TN)
+                                    </option>
+                                    <option value="+90" style="background-color: #11141b; color: #fff;">+90 (TR)
+                                    </option>
+                                    <option value="+993" style="background-color: #11141b; color: #fff;">+993 (TM)
+                                    </option>
+                                    <option value="+1-649" style="background-color: #11141b; color: #fff;">+1-649 (TC)
+                                    </option>
+                                    <option value="+688" style="background-color: #11141b; color: #fff;">+688 (TV)
+                                    </option>
+                                    <option value="+1-340" style="background-color: #11141b; color: #fff;">+1-340 (VI)
+                                    </option>
+                                    <option value="+256" style="background-color: #11141b; color: #fff;">+256 (UG)
+                                    </option>
+                                    <option value="+380" style="background-color: #11141b; color: #fff;">+380 (UA)
+                                    </option>
+                                    <option value="+971" style="background-color: #11141b; color: #fff;">+971 (AE)
+                                    </option>
+                                    <option value="+44" style="background-color: #11141b; color: #fff;">+44 (GB)
+                                    </option>
+                                    <option value="+1" style="background-color: #11141b; color: #fff;">+1 (US)</option>
+                                    <option value="+598" style="background-color: #11141b; color: #fff;">+598 (UY)
+                                    </option>
+                                    <option value="+998" style="background-color: #11141b; color: #fff;">+998 (UZ)
+                                    </option>
+                                    <option value="+678" style="background-color: #11141b; color: #fff;">+678 (VU)
+                                    </option>
+                                    <option value="+379" style="background-color: #11141b; color: #fff;">+379 (VA)
+                                    </option>
+                                    <option value="+58" style="background-color: #11141b; color: #fff;">+58 (VE)
+                                    </option>
+                                    <option value="+84" style="background-color: #11141b; color: #fff;">+84 (VN)
+                                    </option>
+                                    <option value="+681" style="background-color: #11141b; color: #fff;">+681 (WF)
+                                    </option>
+                                    <option value="+212" style="background-color: #11141b; color: #fff;">+212 (EH)
+                                    </option>
+                                    <option value="+967" style="background-color: #11141b; color: #fff;">+967 (YE)
+                                    </option>
+                                    <option value="+260" style="background-color: #11141b; color: #fff;">+260 (ZM)
+                                    </option>
+                                    <option value="+263" style="background-color: #11141b; color: #fff;">+263 (ZW)
+                                    </option>
+                                </select>
+                                <label class="form-label"
+                                    style="top: -15px; font-size: 0.8rem; color: var(--accent-gold);">Code</label>
+                            </div>
+                            <div class="form-group" style="flex-grow: 1; margin-bottom: 0;">
+                                <input type="text" class="form-input" id="clientPhone" autocomplete="tel"
+                                    placeholder=" ">
+                                <label class="form-label" for="clientPhone">Phone Number <span
+                                        style="color: #ff5252;">*</span></label>
+                                <div class="error-message" id="phoneError">Please enter a valid phone number.</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 40px;">
+                            <select class="form-input" id="projectType" style="border-radius: 0;">
+                                <option value="Not Specified" selected style="background-color: #11141b; color: #fff;">
+                                    &nbsp;</option>
+                                <option value="Residential Building Construction"
+                                    style="background-color: #11141b; color: #fff;">Residential Building Construction
+                                </option>
+                                <option value="Commercial Space Architecture"
+                                    style="background-color: #11141b; color: #fff;">Commercial Space Architecture
+                                </option>
+                                <option value="Luxury Interior Design" style="background-color: #11141b; color: #fff;">
+                                    Luxury Interior Design</option>
+                                <option value="Before/After Room Renovation"
+                                    style="background-color: #11141b; color: #fff;">Before/After Room Renovation
+                                </option>
+                                <option value="Other / General Inquiry" style="background-color: #11141b; color: #fff;">
+                                    Other / General Inquiry</option>
+                            </select>
+                            <label class="form-label" for="projectType">Service Type (Optional)</label>
+                            <div class="error-message" id="typeError">Please select a service type.</div>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea class="form-input form-textarea" id="projectMessage" placeholder=" "></textarea>
+                            <label class="form-label" for="projectMessage">Project Vision Details (Optional)</label>
+                        </div>
+
+                        <button type="button" class="btn-gold" style="width: 100%;" id="submitFormBtn"
+                            onclick="handleFormSubmit()">
+                            <i class="fa-solid fa-paper-plane"></i> Send Inquiry
+                        </button>
+                    </form>
+                    <script>
+                        var _isSubmitting = false;
+                        function handleFormSubmit() {
+                            if (_isSubmitting) return; // prevent double-fire
+
+                            var name = document.getElementById('clientName').value.trim();
+                            var email = document.getElementById('clientEmail').value.trim();
+                            var countryCode = document.getElementById('clientCountryCode').value;
+                            var rawPhone = document.getElementById('clientPhone').value.trim();
+                            var phone = countryCode + ' ' + rawPhone;
+
+                            var nameErr = document.getElementById('nameError');
+                            var emailErr = document.getElementById('emailError');
+                            var phoneErr = document.getElementById('phoneError');
+                            if (nameErr) nameErr.style.display = 'none';
+                            if (emailErr) emailErr.style.display = 'none';
+                            if (phoneErr) phoneErr.style.display = 'none';
+
+                            var valid = true;
+                            if (name.length < 3) { if (nameErr) nameErr.style.display = 'block'; valid = false; }
+                            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { if (emailErr) emailErr.style.display = 'block'; valid = false; }
+                            if (!/^[\d\s\-]{6,}$/.test(rawPhone)) { if (phoneErr) phoneErr.style.display = 'block'; valid = false; }
+                            if (!valid) return;
+
+                            _isSubmitting = true;
+                            var btn = document.getElementById('submitFormBtn');
+                            btn.disabled = true;
+                            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Sending...';
+
+                            var now = new Date();
+                            var id = 'MRC-' + now.getFullYear() + String(now.getMonth() + 1).padStart(2, '0') + String(now.getDate()).padStart(2, '0') + '-' + String(now.getHours()).padStart(2, '0') + String(now.getMinutes()).padStart(2, '0') + String(now.getSeconds()).padStart(2, '0') + '-' + Math.random().toString(36).substring(2, 6).toUpperCase();
+
+                            var GURL = 'https://script.google.com/macros/s/AKfycbxqE8fKubGiIjnLcVJaLJu33xGsNYGJLyw_tVZ76Ms43qvrLRshKCEkYsCWFtfqTLamYw/exec';
+
+                            // Use GET with URL params — avoids the POST redirect double-fire issue in Google Apps Script
+                            var url = GURL
+                                + '?Name=' + encodeURIComponent(name)
+                                + '&Email=' + encodeURIComponent(email)
+                                + '&Phone=' + encodeURIComponent(phone)
+                                + '&Service=' + encodeURIComponent(document.getElementById('projectType') ? document.getElementById('projectType').value : 'Not Specified')
+                                + '&Message=' + encodeURIComponent(document.getElementById('projectMessage') ? document.getElementById('projectMessage').value.trim() : '')
+                                + '&InquiryID=' + encodeURIComponent(id);
+
+                            var _fired = false;
+                            function done() {
+                                if (_fired) return;
+                                _fired = true;
+                                _isSubmitting = false;
+                                document.getElementById('consultationForm').reset();
+                                btn.disabled = false;
+                                btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Inquiry';
+                                var overlay = document.getElementById('successOverlay');
+                                var card = document.getElementById('successCard');
+                                var nameSpan = document.getElementById('successName');
+                                var idSpan = document.getElementById('successId');
+                                if (nameSpan) nameSpan.textContent = name;
+                                if (idSpan) idSpan.textContent = id;
+                                if (overlay) overlay.style.display = 'flex';
+                                if (card) setTimeout(function () { card.style.transform = 'scale(1)'; card.style.opacity = '1'; }, 10);
+                            }
+
+                            fetch(url, { mode: 'no-cors' })
+                                .then(function () {
+                                    done();
+                                })
+                                .catch(function (err) {
+                                    console.error('Form submission failed:', err);
+                                    _isSubmitting = false;
+                                    btn.disabled = false;
+                                    btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Inquiry';
+                                    alert('Submission failed. Please check your network connection or try again later.');
+                                });
+                        }
+                    </script>
+                </div>
             </div>
-            
-            <div class="booking-form-card">
-                <h3 class="form-title">Consultation Booking</h3>
-                <!-- GOOGLE FORM EMBED SECTION -->
-                <!-- To use your own Google Form: -->
-                <!-- 1. Open your Google Form. -->
-                <!-- 2. Click the 'Send' button (top right). -->
-                <!-- 3. Click the '< >' icon (Embed HTML code). -->
-                <!-- 4. Copy the link URL in the 'src="..."' attribute. -->
-                <!-- 5. Paste it in place of the 'src="..."' URL in the iframe below. -->
-                <form id="consultationForm" novalidate onsubmit="return false;">
-                    <div class="form-group">
-                        <input type="text" class="form-input" id="clientName" autocomplete="name" placeholder=" ">
-                        <label class="form-label" for="clientName">Full Name <span style="color: #ff5252;">*</span></label>
-                        <div class="error-message" id="nameError">Please enter your full name (at least 3 characters).</div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <input type="text" class="form-input" id="clientEmail" autocomplete="email" placeholder=" ">
-                        <label class="form-label" for="clientEmail">Email Address <span style="color: #ff5252;">*</span></label>
-                        <div class="error-message" id="emailError">Please enter a valid email address.</div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <input type="text" class="form-input" id="clientPhone" autocomplete="tel" placeholder=" ">
-                        <label class="form-label" for="clientPhone">Phone Number <span style="color: #ff5252;">*</span></label>
-                        <div class="error-message" id="phoneError">Please enter a valid phone number.</div>
-                    </div>
-                    
-                    <div class="form-group" style="margin-bottom: 40px;">
-                        <select class="form-input" id="projectType" style="border-radius: 0;">
-                            <option value="Not Specified" selected style="background-color: #11141b; color: #fff;">&nbsp;</option>
-                            <option value="Residential Building Construction" style="background-color: #11141b; color: #fff;">Residential Building Construction</option>
-                            <option value="Commercial Space Architecture" style="background-color: #11141b; color: #fff;">Commercial Space Architecture</option>
-                            <option value="Luxury Interior Design" style="background-color: #11141b; color: #fff;">Luxury Interior Design</option>
-                            <option value="Before/After Room Renovation" style="background-color: #11141b; color: #fff;">Before/After Room Renovation</option>
-                            <option value="Other / General Inquiry" style="background-color: #11141b; color: #fff;">Other / General Inquiry</option>
-                        </select>
-                        <label class="form-label" for="projectType">Service Type (Optional)</label>
-                        <div class="error-message" id="typeError">Please select a service type.</div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <textarea class="form-input form-textarea" id="projectMessage" placeholder=" "></textarea>
-                        <label class="form-label" for="projectMessage">Project Vision Details (Optional)</label>
-                    </div>
-                    
-                    <button type="button" class="btn-gold" style="width: 100%;" id="submitFormBtn" onclick="handleFormSubmit()">
-                        <i class="fa-solid fa-paper-plane"></i> Send Inquiry
-                    </button>
-                </form>
-                <script>
-                var _isSubmitting = false;
-                function handleFormSubmit() {
-                    if (_isSubmitting) return; // prevent double-fire
+        </section>
 
-                    var name  = document.getElementById('clientName').value.trim();
-                    var email = document.getElementById('clientEmail').value.trim();
-                    var phone = document.getElementById('clientPhone').value.trim();
-
-                    var nameErr  = document.getElementById('nameError');
-                    var emailErr = document.getElementById('emailError');
-                    var phoneErr = document.getElementById('phoneError');
-                    if (nameErr)  nameErr.style.display  = 'none';
-                    if (emailErr) emailErr.style.display = 'none';
-                    if (phoneErr) phoneErr.style.display = 'none';
-
-                    var valid = true;
-                    if (name.length < 3)  { if (nameErr)  nameErr.style.display  = 'block'; valid = false; }
-                    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { if (emailErr) emailErr.style.display = 'block'; valid = false; }
-                    if (!/^\+?[\d\s\-]{10,}$/.test(phone)) { if (phoneErr) phoneErr.style.display = 'block'; valid = false; }
-                    if (!valid) return;
-
-                    _isSubmitting = true;
-                    var btn = document.getElementById('submitFormBtn');
-                    btn.disabled = true;
-                    btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Sending...';
-
-                    var now = new Date();
-                    var id  = 'MRC-' + now.getFullYear() + String(now.getMonth()+1).padStart(2,'0') + String(now.getDate()).padStart(2,'0') + '-' + String(now.getHours()).padStart(2,'0') + String(now.getMinutes()).padStart(2,'0') + String(now.getSeconds()).padStart(2,'0') + '-' + Math.random().toString(36).substring(2,6).toUpperCase();
-
-                    var GURL = 'https://script.google.com/macros/s/AKfycbxqE8fKubGiIjnLcVJaLJu33xGsNYGJLyw_tVZ76Ms43qvrLRshKCEkYsCWFtfqTLamYw/exec';
-
-                    // Use GET with URL params — avoids the POST redirect double-fire issue in Google Apps Script
-                    var url = GURL
-                        + '?Name='      + encodeURIComponent(name)
-                        + '&Email='     + encodeURIComponent(email)
-                        + '&Phone='     + encodeURIComponent(phone)
-                        + '&Service='   + encodeURIComponent(document.getElementById('projectType') ? document.getElementById('projectType').value : 'Not Specified')
-                        + '&Message='   + encodeURIComponent(document.getElementById('projectMessage') ? document.getElementById('projectMessage').value.trim() : '')
-                        + '&InquiryID=' + encodeURIComponent(id);
-
-                    var _fired = false;
-                    function done() {
-                        if (_fired) return;
-                        _fired = true;
-                        _isSubmitting = false;
-                        document.getElementById('consultationForm').reset();
-                        btn.disabled = false;
-                        btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Inquiry';
-                        var overlay  = document.getElementById('successOverlay');
-                        var card     = document.getElementById('successCard');
-                        var nameSpan = document.getElementById('successName');
-                        var idSpan   = document.getElementById('successId');
-                        if (nameSpan) nameSpan.textContent = name;
-                        if (idSpan)   idSpan.textContent   = id;
-                        if (overlay)  overlay.style.display = 'flex';
-                        if (card) setTimeout(function(){ card.style.transform='scale(1)'; card.style.opacity='1'; }, 10);
-                    }
-
-                    fetch(url, { mode: 'no-cors' })
-                        .then(function() {
-                            done();
-                        })
-                        .catch(function(err) {
-                            console.error('Form submission failed:', err);
-                            _isSubmitting = false;
-                            btn.disabled = false;
-                            btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Inquiry';
-                            alert('Submission failed. Please check your network connection or try again later.');
-                        });
-                }
-                </script>
-            </div>
-        </div>
-    </section>
+    </main><!-- end #main-content -->
 
     <!-- Footer Section -->
     <footer>
         <div class="footer-container">
             <div class="logo">MR<span>CONSTRUCTION</span></div>
-            <p class="footer-text">&copy; 2026 MR Construction. Proprietor: Boddula Pruthvi Raj | GSTIN: 36HDHPR4195E1Z3. All Rights Reserved.</p>
+            <p class="footer-text">&copy; 2026 MR Construction. Proprietor: Boddula Pruthvi Raj | GSTIN:
+                36HDHPR4195E1Z3. All Rights Reserved.</p>
             <div class="footer-socials">
-                <a href="https://instagram.com/rajaiahconstruction26" target="_blank" class="social-link" aria-label="Instagram Profile"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://instagram.com/rajaiahconstruction26" target="_blank" class="social-link"
+                    aria-label="Instagram Profile"><i class="fa-brands fa-instagram"></i></a>
                 <a href="#" class="social-link" aria-label="Pinterest Boards"><i class="fa-brands fa-pinterest"></i></a>
                 <a href="#" class="social-link" aria-label="LinkedIn Page"><i class="fa-brands fa-linkedin-in"></i></a>
                 <a href="#" class="social-link" aria-label="YouTube Channel"><i class="fa-brands fa-youtube"></i></a>
@@ -404,39 +949,59 @@
     </footer>
 
     <!-- Success Overlay (shown after form submission) -->
-    <div id="successOverlay" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(5,5,15,0.85); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); align-items:center; justify-content:center;">
-        <div id="successCard" style="background:linear-gradient(160deg,#12121f 0%,#1a1428 50%,#0d0d1a 100%); border:1px solid rgba(212,175,55,0.3); border-radius:24px; padding:52px 44px 44px; max-width:480px; width:92%; text-align:center; box-shadow:0 40px 80px rgba(0,0,0,0.7), inset 0 1px 0 rgba(212,175,55,0.15); transform:scale(0.85) translateY(20px); opacity:0; transition:all 0.45s cubic-bezier(0.34,1.56,0.64,1); position:relative; overflow:hidden;">
+    <div id="successOverlay"
+        style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(5,5,15,0.85); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); align-items:center; justify-content:center;">
+        <div id="successCard"
+            style="background:linear-gradient(160deg,#12121f 0%,#1a1428 50%,#0d0d1a 100%); border:1px solid rgba(212,175,55,0.3); border-radius:24px; padding:52px 44px 44px; max-width:480px; width:92%; text-align:center; box-shadow:0 40px 80px rgba(0,0,0,0.7), inset 0 1px 0 rgba(212,175,55,0.15); transform:scale(0.85) translateY(20px); opacity:0; transition:all 0.45s cubic-bezier(0.34,1.56,0.64,1); position:relative; overflow:hidden;">
 
             <!-- Subtle corner glow -->
-            <div style="position:absolute;top:-60px;right:-60px;width:180px;height:180px;background:radial-gradient(circle,rgba(212,175,55,0.12) 0%,transparent 70%);pointer-events:none;"></div>
-            <div style="position:absolute;bottom:-60px;left:-60px;width:180px;height:180px;background:radial-gradient(circle,rgba(212,175,55,0.08) 0%,transparent 70%);pointer-events:none;"></div>
+            <div
+                style="position:absolute;top:-60px;right:-60px;width:180px;height:180px;background:radial-gradient(circle,rgba(212,175,55,0.12) 0%,transparent 70%);pointer-events:none;">
+            </div>
+            <div
+                style="position:absolute;bottom:-60px;left:-60px;width:180px;height:180px;background:radial-gradient(circle,rgba(212,175,55,0.08) 0%,transparent 70%);pointer-events:none;">
+            </div>
 
             <!-- Gold check icon -->
-            <div style="width:72px;height:72px;background:linear-gradient(145deg,#c9a227,#f0d060,#c9a227);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 0 0 6px rgba(212,175,55,0.12), 0 8px 32px rgba(212,175,55,0.3);">
+            <div
+                style="width:72px;height:72px;background:linear-gradient(145deg,#c9a227,#f0d060,#c9a227);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 0 0 6px rgba(212,175,55,0.12), 0 8px 32px rgba(212,175,55,0.3);">
                 <i class="fa-solid fa-check" style="font-size:30px;color:#12121f;"></i>
             </div>
 
             <!-- Ornamental top divider -->
             <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin:0 0 16px;">
-                <div style="height:1px;width:40px;background:linear-gradient(to right,transparent,rgba(212,175,55,0.5));"></div>
+                <div
+                    style="height:1px;width:40px;background:linear-gradient(to right,transparent,rgba(212,175,55,0.5));">
+                </div>
                 <i class="fa-solid fa-star" style="font-size:8px;color:rgba(212,175,55,0.6);"></i>
-                <div style="height:1px;width:40px;background:linear-gradient(to left,transparent,rgba(212,175,55,0.5));"></div>
+                <div
+                    style="height:1px;width:40px;background:linear-gradient(to left,transparent,rgba(212,175,55,0.5));">
+                </div>
             </div>
 
-            <h2 style="font-family:'Playfair Display',Georgia,serif;color:#e8c84a;font-size:1.7rem;font-weight:700;letter-spacing:1px;margin:0 0 10px;text-shadow:0 2px 20px rgba(212,175,55,0.3);">Inquiry Submitted</h2>
+            <h2
+                style="font-family:'Playfair Display',Georgia,serif;color:#e8c84a;font-size:1.7rem;font-weight:700;letter-spacing:1px;margin:0 0 10px;text-shadow:0 2px 20px rgba(212,175,55,0.3);">
+                Inquiry Submitted</h2>
 
             <p style="color:rgba(255,255,255,0.9);font-size:1rem;line-height:1.7;margin:0 0 6px;">
                 Thank you, <span id="successName" style="color:#e8c84a;font-weight:600;font-style:italic;"></span>!
             </p>
             <p style="color:rgba(255,255,255,0.55);font-size:0.875rem;line-height:1.75;margin:0 0 24px;">
-                Your enquiry has been carefully received by our team.<br>We will reach out to you personally very shortly.
+                Your enquiry has been carefully received by our team.<br>We will reach out to you personally very
+                shortly.
             </p>
 
             <!-- Compact Ref ID pill -->
-            <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(212,175,55,0.07);border:1px dashed rgba(212,175,55,0.35);border-radius:8px;padding:7px 16px;margin:0 0 24px;">
-                <span style="color:rgba(255,255,255,0.38);font-size:0.68rem;letter-spacing:1.5px;text-transform:uppercase;white-space:nowrap;">Ref ID</span>
-                <span id="successId" style="font-family:'Courier New',monospace;color:#e8c84a;font-size:0.88rem;font-weight:700;letter-spacing:2px;"></span>
-                <button id="copyIdBtn" onclick="var btn=this; navigator.clipboard.writeText(document.getElementById('successId').textContent).then(function(){ btn.textContent='✓ Copied'; setTimeout(function(){ btn.textContent='Copy'; },2000); })" style="background:transparent;border:1px solid rgba(212,175,55,0.3);color:#d4af37;padding:3px 10px;border-radius:10px;font-size:0.68rem;cursor:pointer;letter-spacing:0.5px;transition:all 0.2s;">Copy</button>
+            <div
+                style="display:inline-flex;align-items:center;gap:10px;background:rgba(212,175,55,0.07);border:1px dashed rgba(212,175,55,0.35);border-radius:8px;padding:7px 16px;margin:0 0 24px;">
+                <span
+                    style="color:rgba(255,255,255,0.38);font-size:0.68rem;letter-spacing:1.5px;text-transform:uppercase;white-space:nowrap;">Ref
+                    ID</span>
+                <span id="successId"
+                    style="font-family:'Courier New',monospace;color:#e8c84a;font-size:0.88rem;font-weight:700;letter-spacing:2px;"></span>
+                <button id="copyIdBtn"
+                    onclick="var btn=this; navigator.clipboard.writeText(document.getElementById('successId').textContent).then(function(){ btn.textContent='✓ Copied'; setTimeout(function(){ btn.textContent='Copy'; },2000); })"
+                    style="background:transparent;border:1px solid rgba(212,175,55,0.3);color:#d4af37;padding:3px 10px;border-radius:10px;font-size:0.68rem;cursor:pointer;letter-spacing:0.5px;transition:all 0.2s;">Copy</button>
             </div>
 
             <p style="color:rgba(255,255,255,0.38);font-size:0.75rem;letter-spacing:0.3px;margin:0 0 28px;">
@@ -445,18 +1010,390 @@
 
             <!-- Bottom ornamental divider -->
             <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin:0 0 24px;">
-                <div style="height:1px;width:50px;background:linear-gradient(to right,transparent,rgba(212,175,55,0.35));"></div>
+                <div
+                    style="height:1px;width:50px;background:linear-gradient(to right,transparent,rgba(212,175,55,0.35));">
+                </div>
                 <i class="fa-solid fa-gem" style="font-size:8px;color:rgba(212,175,55,0.4);"></i>
-                <div style="height:1px;width:50px;background:linear-gradient(to left,transparent,rgba(212,175,55,0.35));"></div>
+                <div
+                    style="height:1px;width:50px;background:linear-gradient(to left,transparent,rgba(212,175,55,0.35));">
+                </div>
             </div>
 
-            <button onclick="document.getElementById('successOverlay').style.display='none'" style="background:linear-gradient(135deg,#c9a227,#e8c84a,#c9a227);color:#0d0d1a;border:none;padding:13px 40px;border-radius:50px;font-size:0.88rem;font-weight:700;letter-spacing:2px;cursor:pointer;text-transform:uppercase;box-shadow:0 4px 20px rgba(212,175,55,0.35);transition:all 0.3s;">
+            <button onclick="document.getElementById('successOverlay').style.display='none'"
+                style="background:linear-gradient(135deg,#c9a227,#e8c84a,#c9a227);color:#0d0d1a;border:none;padding:13px 40px;border-radius:50px;font-size:0.88rem;font-weight:700;letter-spacing:2px;cursor:pointer;text-transform:uppercase;box-shadow:0 4px 20px rgba(212,175,55,0.35);transition:all 0.3s;">
                 Close
             </button>
         </div>
     </div>
 
     <!-- Scripting Logic -->
-    <script src="script.js?v=14"></script>
+    <script src="script.js?v=15"></script>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/918979888789?text=Hello%20MR%20Construction%2C%20I%20am%20interested%20in%20your%20services%20and%20would%20like%20to%20discuss%20a%20project%20requirement%20with%20you."
+        target="_blank" class="whatsapp-float">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- 5-Second Popup Modal -->
+    <div id="quickPopupOverlay" class="popup-overlay" style="display: none;">
+        <div class="popup-modal">
+            <button class="popup-close" onclick="document.getElementById('quickPopupOverlay').style.display='none'"><i
+                    class="fa-solid fa-xmark"></i></button>
+            <h3
+                style="color: var(--accent-gold); font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 10px;">
+                Get a Free Quote</h3>
+            <p style="color: var(--text-silver); font-size: 0.9rem; margin-bottom: 25px;">Fill out this quick form and
+                our experts will contact you shortly.</p>
+
+            <form id="popupForm">
+                <div class="form-group" style="margin-bottom: 20px;">
+                    <input type="text" class="form-input" id="popupName" autocomplete="name" placeholder=" ">
+                    <label class="form-label" for="popupName">Full Name <span style="color: #ff5252;">*</span></label>
+                    <div class="error-message" id="popupNameError">Please enter your name.</div>
+                </div>
+
+                <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                    <div class="form-group" style="width: 100px; margin-bottom: 0;">
+                        <select class="form-input" id="popupCountryCode"
+                            style="padding-left: 10px; font-size: 0.8rem; cursor: pointer;">
+
+                            <option value="+93" style="background-color: #11141b; color: #fff;">+93 (AF)</option>
+                            <option value="+355" style="background-color: #11141b; color: #fff;">+355 (AL)</option>
+                            <option value="+213" style="background-color: #11141b; color: #fff;">+213 (DZ)</option>
+                            <option value="+1-684" style="background-color: #11141b; color: #fff;">+1-684 (AS)</option>
+                            <option value="+376" style="background-color: #11141b; color: #fff;">+376 (AD)</option>
+                            <option value="+244" style="background-color: #11141b; color: #fff;">+244 (AO)</option>
+                            <option value="+1-264" style="background-color: #11141b; color: #fff;">+1-264 (AI)</option>
+                            <option value="+672" style="background-color: #11141b; color: #fff;">+672 (AQ)</option>
+                            <option value="+1-268" style="background-color: #11141b; color: #fff;">+1-268 (AG)</option>
+                            <option value="+54" style="background-color: #11141b; color: #fff;">+54 (AR)</option>
+                            <option value="+374" style="background-color: #11141b; color: #fff;">+374 (AM)</option>
+                            <option value="+297" style="background-color: #11141b; color: #fff;">+297 (AW)</option>
+                            <option value="+61" style="background-color: #11141b; color: #fff;">+61 (AU)</option>
+                            <option value="+43" style="background-color: #11141b; color: #fff;">+43 (AT)</option>
+                            <option value="+994" style="background-color: #11141b; color: #fff;">+994 (AZ)</option>
+                            <option value="+1-242" style="background-color: #11141b; color: #fff;">+1-242 (BS)</option>
+                            <option value="+973" style="background-color: #11141b; color: #fff;">+973 (BH)</option>
+                            <option value="+880" style="background-color: #11141b; color: #fff;">+880 (BD)</option>
+                            <option value="+1-246" style="background-color: #11141b; color: #fff;">+1-246 (BB)</option>
+                            <option value="+375" style="background-color: #11141b; color: #fff;">+375 (BY)</option>
+                            <option value="+32" style="background-color: #11141b; color: #fff;">+32 (BE)</option>
+                            <option value="+501" style="background-color: #11141b; color: #fff;">+501 (BZ)</option>
+                            <option value="+229" style="background-color: #11141b; color: #fff;">+229 (BJ)</option>
+                            <option value="+1-441" style="background-color: #11141b; color: #fff;">+1-441 (BM)</option>
+                            <option value="+975" style="background-color: #11141b; color: #fff;">+975 (BT)</option>
+                            <option value="+591" style="background-color: #11141b; color: #fff;">+591 (BO)</option>
+                            <option value="+387" style="background-color: #11141b; color: #fff;">+387 (BA)</option>
+                            <option value="+267" style="background-color: #11141b; color: #fff;">+267 (BW)</option>
+                            <option value="+55" style="background-color: #11141b; color: #fff;">+55 (BR)</option>
+                            <option value="+246" style="background-color: #11141b; color: #fff;">+246 (IO)</option>
+                            <option value="+1-284" style="background-color: #11141b; color: #fff;">+1-284 (VG)</option>
+                            <option value="+673" style="background-color: #11141b; color: #fff;">+673 (BN)</option>
+                            <option value="+359" style="background-color: #11141b; color: #fff;">+359 (BG)</option>
+                            <option value="+226" style="background-color: #11141b; color: #fff;">+226 (BF)</option>
+                            <option value="+257" style="background-color: #11141b; color: #fff;">+257 (BI)</option>
+                            <option value="+855" style="background-color: #11141b; color: #fff;">+855 (KH)</option>
+                            <option value="+237" style="background-color: #11141b; color: #fff;">+237 (CM)</option>
+                            <option value="+1" style="background-color: #11141b; color: #fff;">+1 (CA)</option>
+                            <option value="+238" style="background-color: #11141b; color: #fff;">+238 (CV)</option>
+                            <option value="+1-345" style="background-color: #11141b; color: #fff;">+1-345 (KY)</option>
+                            <option value="+236" style="background-color: #11141b; color: #fff;">+236 (CF)</option>
+                            <option value="+235" style="background-color: #11141b; color: #fff;">+235 (TD)</option>
+                            <option value="+56" style="background-color: #11141b; color: #fff;">+56 (CL)</option>
+                            <option value="+86" style="background-color: #11141b; color: #fff;">+86 (CN)</option>
+                            <option value="+61" style="background-color: #11141b; color: #fff;">+61 (CX)</option>
+                            <option value="+61" style="background-color: #11141b; color: #fff;">+61 (CC)</option>
+                            <option value="+57" style="background-color: #11141b; color: #fff;">+57 (CO)</option>
+                            <option value="+269" style="background-color: #11141b; color: #fff;">+269 (KM)</option>
+                            <option value="+682" style="background-color: #11141b; color: #fff;">+682 (CK)</option>
+                            <option value="+506" style="background-color: #11141b; color: #fff;">+506 (CR)</option>
+                            <option value="+385" style="background-color: #11141b; color: #fff;">+385 (HR)</option>
+                            <option value="+53" style="background-color: #11141b; color: #fff;">+53 (CU)</option>
+                            <option value="+599" style="background-color: #11141b; color: #fff;">+599 (CW)</option>
+                            <option value="+357" style="background-color: #11141b; color: #fff;">+357 (CY)</option>
+                            <option value="+420" style="background-color: #11141b; color: #fff;">+420 (CZ)</option>
+                            <option value="+243" style="background-color: #11141b; color: #fff;">+243 (CD)</option>
+                            <option value="+45" style="background-color: #11141b; color: #fff;">+45 (DK)</option>
+                            <option value="+253" style="background-color: #11141b; color: #fff;">+253 (DJ)</option>
+                            <option value="+1-767" style="background-color: #11141b; color: #fff;">+1-767 (DM)</option>
+                            <option value="+1-809" style="background-color: #11141b; color: #fff;">+1-809 (DO)</option>
+                            <option value="+670" style="background-color: #11141b; color: #fff;">+670 (TL)</option>
+                            <option value="+593" style="background-color: #11141b; color: #fff;">+593 (EC)</option>
+                            <option value="+20" style="background-color: #11141b; color: #fff;">+20 (EG)</option>
+                            <option value="+503" style="background-color: #11141b; color: #fff;">+503 (SV)</option>
+                            <option value="+240" style="background-color: #11141b; color: #fff;">+240 (GQ)</option>
+                            <option value="+291" style="background-color: #11141b; color: #fff;">+291 (ER)</option>
+                            <option value="+372" style="background-color: #11141b; color: #fff;">+372 (EE)</option>
+                            <option value="+251" style="background-color: #11141b; color: #fff;">+251 (ET)</option>
+                            <option value="+500" style="background-color: #11141b; color: #fff;">+500 (FK)</option>
+                            <option value="+298" style="background-color: #11141b; color: #fff;">+298 (FO)</option>
+                            <option value="+679" style="background-color: #11141b; color: #fff;">+679 (FJ)</option>
+                            <option value="+358" style="background-color: #11141b; color: #fff;">+358 (FI)</option>
+                            <option value="+33" style="background-color: #11141b; color: #fff;">+33 (FR)</option>
+                            <option value="+689" style="background-color: #11141b; color: #fff;">+689 (PF)</option>
+                            <option value="+241" style="background-color: #11141b; color: #fff;">+241 (GA)</option>
+                            <option value="+220" style="background-color: #11141b; color: #fff;">+220 (GM)</option>
+                            <option value="+995" style="background-color: #11141b; color: #fff;">+995 (GE)</option>
+                            <option value="+49" style="background-color: #11141b; color: #fff;">+49 (DE)</option>
+                            <option value="+233" style="background-color: #11141b; color: #fff;">+233 (GH)</option>
+                            <option value="+350" style="background-color: #11141b; color: #fff;">+350 (GI)</option>
+                            <option value="+30" style="background-color: #11141b; color: #fff;">+30 (GR)</option>
+                            <option value="+299" style="background-color: #11141b; color: #fff;">+299 (GL)</option>
+                            <option value="+1-473" style="background-color: #11141b; color: #fff;">+1-473 (GD)</option>
+                            <option value="+1-671" style="background-color: #11141b; color: #fff;">+1-671 (GU)</option>
+                            <option value="+502" style="background-color: #11141b; color: #fff;">+502 (GT)</option>
+                            <option value="+44" style="background-color: #11141b; color: #fff;">+44 (GG)</option>
+                            <option value="+224" style="background-color: #11141b; color: #fff;">+224 (GN)</option>
+                            <option value="+245" style="background-color: #11141b; color: #fff;">+245 (GW)</option>
+                            <option value="+592" style="background-color: #11141b; color: #fff;">+592 (GY)</option>
+                            <option value="+509" style="background-color: #11141b; color: #fff;">+509 (HT)</option>
+                            <option value="+504" style="background-color: #11141b; color: #fff;">+504 (HN)</option>
+                            <option value="+852" style="background-color: #11141b; color: #fff;">+852 (HK)</option>
+                            <option value="+36" style="background-color: #11141b; color: #fff;">+36 (HU)</option>
+                            <option value="+354" style="background-color: #11141b; color: #fff;">+354 (IS)</option>
+                            <option value="+91" style="background-color: #11141b; color: #fff;" selected>+91 (IN)
+                            </option>
+                            <option value="+62" style="background-color: #11141b; color: #fff;">+62 (ID)</option>
+                            <option value="+98" style="background-color: #11141b; color: #fff;">+98 (IR)</option>
+                            <option value="+964" style="background-color: #11141b; color: #fff;">+964 (IQ)</option>
+                            <option value="+353" style="background-color: #11141b; color: #fff;">+353 (IE)</option>
+                            <option value="+44" style="background-color: #11141b; color: #fff;">+44 (IM)</option>
+                            <option value="+972" style="background-color: #11141b; color: #fff;">+972 (IL)</option>
+                            <option value="+39" style="background-color: #11141b; color: #fff;">+39 (IT)</option>
+                            <option value="+225" style="background-color: #11141b; color: #fff;">+225 (CI)</option>
+                            <option value="+1-876" style="background-color: #11141b; color: #fff;">+1-876 (JM)</option>
+                            <option value="+81" style="background-color: #11141b; color: #fff;">+81 (JP)</option>
+                            <option value="+44" style="background-color: #11141b; color: #fff;">+44 (JE)</option>
+                            <option value="+962" style="background-color: #11141b; color: #fff;">+962 (JO)</option>
+                            <option value="+7" style="background-color: #11141b; color: #fff;">+7 (KZ)</option>
+                            <option value="+254" style="background-color: #11141b; color: #fff;">+254 (KE)</option>
+                            <option value="+686" style="background-color: #11141b; color: #fff;">+686 (KI)</option>
+                            <option value="+383" style="background-color: #11141b; color: #fff;">+383 (XK)</option>
+                            <option value="+965" style="background-color: #11141b; color: #fff;">+965 (KW)</option>
+                            <option value="+996" style="background-color: #11141b; color: #fff;">+996 (KG)</option>
+                            <option value="+856" style="background-color: #11141b; color: #fff;">+856 (LA)</option>
+                            <option value="+371" style="background-color: #11141b; color: #fff;">+371 (LV)</option>
+                            <option value="+961" style="background-color: #11141b; color: #fff;">+961 (LB)</option>
+                            <option value="+266" style="background-color: #11141b; color: #fff;">+266 (LS)</option>
+                            <option value="+231" style="background-color: #11141b; color: #fff;">+231 (LR)</option>
+                            <option value="+218" style="background-color: #11141b; color: #fff;">+218 (LY)</option>
+                            <option value="+423" style="background-color: #11141b; color: #fff;">+423 (LI)</option>
+                            <option value="+370" style="background-color: #11141b; color: #fff;">+370 (LT)</option>
+                            <option value="+352" style="background-color: #11141b; color: #fff;">+352 (LU)</option>
+                            <option value="+853" style="background-color: #11141b; color: #fff;">+853 (MO)</option>
+                            <option value="+389" style="background-color: #11141b; color: #fff;">+389 (MK)</option>
+                            <option value="+261" style="background-color: #11141b; color: #fff;">+261 (MG)</option>
+                            <option value="+265" style="background-color: #11141b; color: #fff;">+265 (MW)</option>
+                            <option value="+60" style="background-color: #11141b; color: #fff;">+60 (MY)</option>
+                            <option value="+960" style="background-color: #11141b; color: #fff;">+960 (MV)</option>
+                            <option value="+223" style="background-color: #11141b; color: #fff;">+223 (ML)</option>
+                            <option value="+356" style="background-color: #11141b; color: #fff;">+356 (MT)</option>
+                            <option value="+692" style="background-color: #11141b; color: #fff;">+692 (MH)</option>
+                            <option value="+222" style="background-color: #11141b; color: #fff;">+222 (MR)</option>
+                            <option value="+230" style="background-color: #11141b; color: #fff;">+230 (MU)</option>
+                            <option value="+262" style="background-color: #11141b; color: #fff;">+262 (YT)</option>
+                            <option value="+52" style="background-color: #11141b; color: #fff;">+52 (MX)</option>
+                            <option value="+691" style="background-color: #11141b; color: #fff;">+691 (FM)</option>
+                            <option value="+373" style="background-color: #11141b; color: #fff;">+373 (MD)</option>
+                            <option value="+377" style="background-color: #11141b; color: #fff;">+377 (MC)</option>
+                            <option value="+976" style="background-color: #11141b; color: #fff;">+976 (MN)</option>
+                            <option value="+382" style="background-color: #11141b; color: #fff;">+382 (ME)</option>
+                            <option value="+1-664" style="background-color: #11141b; color: #fff;">+1-664 (MS)</option>
+                            <option value="+212" style="background-color: #11141b; color: #fff;">+212 (MA)</option>
+                            <option value="+258" style="background-color: #11141b; color: #fff;">+258 (MZ)</option>
+                            <option value="+95" style="background-color: #11141b; color: #fff;">+95 (MM)</option>
+                            <option value="+264" style="background-color: #11141b; color: #fff;">+264 (NA)</option>
+                            <option value="+674" style="background-color: #11141b; color: #fff;">+674 (NR)</option>
+                            <option value="+977" style="background-color: #11141b; color: #fff;">+977 (NP)</option>
+                            <option value="+31" style="background-color: #11141b; color: #fff;">+31 (NL)</option>
+                            <option value="+599" style="background-color: #11141b; color: #fff;">+599 (AN)</option>
+                            <option value="+687" style="background-color: #11141b; color: #fff;">+687 (NC)</option>
+                            <option value="+64" style="background-color: #11141b; color: #fff;">+64 (NZ)</option>
+                            <option value="+505" style="background-color: #11141b; color: #fff;">+505 (NI)</option>
+                            <option value="+227" style="background-color: #11141b; color: #fff;">+227 (NE)</option>
+                            <option value="+234" style="background-color: #11141b; color: #fff;">+234 (NG)</option>
+                            <option value="+683" style="background-color: #11141b; color: #fff;">+683 (NU)</option>
+                            <option value="+850" style="background-color: #11141b; color: #fff;">+850 (KP)</option>
+                            <option value="+1-670" style="background-color: #11141b; color: #fff;">+1-670 (MP)</option>
+                            <option value="+47" style="background-color: #11141b; color: #fff;">+47 (NO)</option>
+                            <option value="+968" style="background-color: #11141b; color: #fff;">+968 (OM)</option>
+                            <option value="+92" style="background-color: #11141b; color: #fff;">+92 (PK)</option>
+                            <option value="+680" style="background-color: #11141b; color: #fff;">+680 (PW)</option>
+                            <option value="+970" style="background-color: #11141b; color: #fff;">+970 (PS)</option>
+                            <option value="+507" style="background-color: #11141b; color: #fff;">+507 (PA)</option>
+                            <option value="+675" style="background-color: #11141b; color: #fff;">+675 (PG)</option>
+                            <option value="+595" style="background-color: #11141b; color: #fff;">+595 (PY)</option>
+                            <option value="+51" style="background-color: #11141b; color: #fff;">+51 (PE)</option>
+                            <option value="+63" style="background-color: #11141b; color: #fff;">+63 (PH)</option>
+                            <option value="+64" style="background-color: #11141b; color: #fff;">+64 (PN)</option>
+                            <option value="+48" style="background-color: #11141b; color: #fff;">+48 (PL)</option>
+                            <option value="+351" style="background-color: #11141b; color: #fff;">+351 (PT)</option>
+                            <option value="+1-787" style="background-color: #11141b; color: #fff;">+1-787 (PR)</option>
+                            <option value="+974" style="background-color: #11141b; color: #fff;">+974 (QA)</option>
+                            <option value="+242" style="background-color: #11141b; color: #fff;">+242 (CG)</option>
+                            <option value="+262" style="background-color: #11141b; color: #fff;">+262 (RE)</option>
+                            <option value="+40" style="background-color: #11141b; color: #fff;">+40 (RO)</option>
+                            <option value="+7" style="background-color: #11141b; color: #fff;">+7 (RU)</option>
+                            <option value="+250" style="background-color: #11141b; color: #fff;">+250 (RW)</option>
+                            <option value="+590" style="background-color: #11141b; color: #fff;">+590 (BL)</option>
+                            <option value="+290" style="background-color: #11141b; color: #fff;">+290 (SH)</option>
+                            <option value="+1-869" style="background-color: #11141b; color: #fff;">+1-869 (KN)</option>
+                            <option value="+1-758" style="background-color: #11141b; color: #fff;">+1-758 (LC)</option>
+                            <option value="+590" style="background-color: #11141b; color: #fff;">+590 (MF)</option>
+                            <option value="+508" style="background-color: #11141b; color: #fff;">+508 (PM)</option>
+                            <option value="+1-784" style="background-color: #11141b; color: #fff;">+1-784 (VC)</option>
+                            <option value="+685" style="background-color: #11141b; color: #fff;">+685 (WS)</option>
+                            <option value="+378" style="background-color: #11141b; color: #fff;">+378 (SM)</option>
+                            <option value="+239" style="background-color: #11141b; color: #fff;">+239 (ST)</option>
+                            <option value="+966" style="background-color: #11141b; color: #fff;">+966 (SA)</option>
+                            <option value="+221" style="background-color: #11141b; color: #fff;">+221 (SN)</option>
+                            <option value="+381" style="background-color: #11141b; color: #fff;">+381 (RS)</option>
+                            <option value="+248" style="background-color: #11141b; color: #fff;">+248 (SC)</option>
+                            <option value="+232" style="background-color: #11141b; color: #fff;">+232 (SL)</option>
+                            <option value="+65" style="background-color: #11141b; color: #fff;">+65 (SG)</option>
+                            <option value="+1-721" style="background-color: #11141b; color: #fff;">+1-721 (SX)</option>
+                            <option value="+421" style="background-color: #11141b; color: #fff;">+421 (SK)</option>
+                            <option value="+386" style="background-color: #11141b; color: #fff;">+386 (SI)</option>
+                            <option value="+677" style="background-color: #11141b; color: #fff;">+677 (SB)</option>
+                            <option value="+252" style="background-color: #11141b; color: #fff;">+252 (SO)</option>
+                            <option value="+27" style="background-color: #11141b; color: #fff;">+27 (ZA)</option>
+                            <option value="+82" style="background-color: #11141b; color: #fff;">+82 (KR)</option>
+                            <option value="+211" style="background-color: #11141b; color: #fff;">+211 (SS)</option>
+                            <option value="+34" style="background-color: #11141b; color: #fff;">+34 (ES)</option>
+                            <option value="+94" style="background-color: #11141b; color: #fff;">+94 (LK)</option>
+                            <option value="+249" style="background-color: #11141b; color: #fff;">+249 (SD)</option>
+                            <option value="+597" style="background-color: #11141b; color: #fff;">+597 (SR)</option>
+                            <option value="+47" style="background-color: #11141b; color: #fff;">+47 (SJ)</option>
+                            <option value="+268" style="background-color: #11141b; color: #fff;">+268 (SZ)</option>
+                            <option value="+46" style="background-color: #11141b; color: #fff;">+46 (SE)</option>
+                            <option value="+41" style="background-color: #11141b; color: #fff;">+41 (CH)</option>
+                            <option value="+963" style="background-color: #11141b; color: #fff;">+963 (SY)</option>
+                            <option value="+886" style="background-color: #11141b; color: #fff;">+886 (TW)</option>
+                            <option value="+992" style="background-color: #11141b; color: #fff;">+992 (TJ)</option>
+                            <option value="+255" style="background-color: #11141b; color: #fff;">+255 (TZ)</option>
+                            <option value="+66" style="background-color: #11141b; color: #fff;">+66 (TH)</option>
+                            <option value="+228" style="background-color: #11141b; color: #fff;">+228 (TG)</option>
+                            <option value="+690" style="background-color: #11141b; color: #fff;">+690 (TK)</option>
+                            <option value="+676" style="background-color: #11141b; color: #fff;">+676 (TO)</option>
+                            <option value="+1-868" style="background-color: #11141b; color: #fff;">+1-868 (TT)</option>
+                            <option value="+216" style="background-color: #11141b; color: #fff;">+216 (TN)</option>
+                            <option value="+90" style="background-color: #11141b; color: #fff;">+90 (TR)</option>
+                            <option value="+993" style="background-color: #11141b; color: #fff;">+993 (TM)</option>
+                            <option value="+1-649" style="background-color: #11141b; color: #fff;">+1-649 (TC)</option>
+                            <option value="+688" style="background-color: #11141b; color: #fff;">+688 (TV)</option>
+                            <option value="+1-340" style="background-color: #11141b; color: #fff;">+1-340 (VI)</option>
+                            <option value="+256" style="background-color: #11141b; color: #fff;">+256 (UG)</option>
+                            <option value="+380" style="background-color: #11141b; color: #fff;">+380 (UA)</option>
+                            <option value="+971" style="background-color: #11141b; color: #fff;">+971 (AE)</option>
+                            <option value="+44" style="background-color: #11141b; color: #fff;">+44 (GB)</option>
+                            <option value="+1" style="background-color: #11141b; color: #fff;">+1 (US)</option>
+                            <option value="+598" style="background-color: #11141b; color: #fff;">+598 (UY)</option>
+                            <option value="+998" style="background-color: #11141b; color: #fff;">+998 (UZ)</option>
+                            <option value="+678" style="background-color: #11141b; color: #fff;">+678 (VU)</option>
+                            <option value="+379" style="background-color: #11141b; color: #fff;">+379 (VA)</option>
+                            <option value="+58" style="background-color: #11141b; color: #fff;">+58 (VE)</option>
+                            <option value="+84" style="background-color: #11141b; color: #fff;">+84 (VN)</option>
+                            <option value="+681" style="background-color: #11141b; color: #fff;">+681 (WF)</option>
+                            <option value="+212" style="background-color: #11141b; color: #fff;">+212 (EH)</option>
+                            <option value="+967" style="background-color: #11141b; color: #fff;">+967 (YE)</option>
+                            <option value="+260" style="background-color: #11141b; color: #fff;">+260 (ZM)</option>
+                            <option value="+263" style="background-color: #11141b; color: #fff;">+263 (ZW)</option>
+
+                        </select>
+                        <label class="form-label"
+                            style="top: -15px; font-size: 0.75rem; color: var(--accent-gold);">Code</label>
+                    </div>
+                    <div class="form-group" style="flex-grow: 1; margin-bottom: 0;">
+                        <input type="text" class="form-input" id="popupPhone" autocomplete="tel" placeholder=" ">
+                        <label class="form-label" for="popupPhone">Phone <span style="color: #ff5252;">*</span></label>
+                        <div class="error-message" id="popupPhoneError">Please enter a valid phone number.</div>
+                    </div>
+                </div>
+
+                <button type="button" class="btn-gold" style="width: 100%; padding: 12px; font-size: 0.9rem;"
+                    id="popupSubmitBtn" onclick="handlePopupSubmit()">
+                    <i class="fa-solid fa-paper-plane"></i> Request Callback
+                </button>
+            </form>
+
+            <script>
+                // Show popup after 5 seconds
+                setTimeout(function () {
+                    if (!sessionStorage.getItem('popupShown')) {
+                        document.getElementById('quickPopupOverlay').style.display = 'flex';
+                        sessionStorage.setItem('popupShown', 'true');
+                    }
+                }, 5000);
+
+                var _popupSubmitting = false;
+                function handlePopupSubmit() {
+                    if (_popupSubmitting) return;
+
+                    var name = document.getElementById('popupName').value.trim();
+                    var countryCode = document.getElementById('popupCountryCode').value;
+                    var rawPhone = document.getElementById('popupPhone').value.trim();
+                    var phone = countryCode + ' ' + rawPhone;
+
+                    var nameErr = document.getElementById('popupNameError');
+                    var phoneErr = document.getElementById('popupPhoneError');
+                    if (nameErr) nameErr.style.display = 'none';
+                    if (phoneErr) phoneErr.style.display = 'none';
+
+                    var valid = true;
+                    if (name.length < 3) { if (nameErr) nameErr.style.display = 'block'; valid = false; }
+                    if (!/^[\d\s\-]{6,}$/.test(rawPhone)) { if (phoneErr) phoneErr.style.display = 'block'; valid = false; }
+                    if (!valid) return;
+
+                    _popupSubmitting = true;
+                    var btn = document.getElementById('popupSubmitBtn');
+                    btn.disabled = true;
+                    btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Sending...';
+
+                    var now = new Date();
+                    var id = 'MRC-POP-' + now.getFullYear() + String(now.getMonth() + 1).padStart(2, '0') + String(now.getDate()).padStart(2, '0') + '-' + String(now.getHours()).padStart(2, '0') + String(now.getMinutes()).padStart(2, '0') + String(now.getSeconds()).padStart(2, '0');
+                    var GURL = 'https://script.google.com/macros/s/AKfycbxqE8fKubGiIjnLcVJaLJu33xGsNYGJLyw_tVZ76Ms43qvrLRshKCEkYsCWFtfqTLamYw/exec';
+
+                    var url = GURL
+                        + '?Name=' + encodeURIComponent(name)
+                        + '&Email=' + encodeURIComponent('No Email (Popup)')
+                        + '&Phone=' + encodeURIComponent(phone)
+                        + '&Service=' + encodeURIComponent('Popup Quick Inquiry')
+                        + '&Message=' + encodeURIComponent('Requested callback via 5-second popup')
+                        + '&InquiryID=' + encodeURIComponent(id);
+
+                    fetch(url, { mode: 'no-cors' })
+                        .then(function () {
+                            _popupSubmitting = false;
+                            document.getElementById('popupForm').reset();
+                            btn.disabled = false;
+                            btn.innerHTML = '<i class="fa-solid fa-check"></i> Sent Successfully';
+
+                            // Also show the main success overlay so they see the reference ID
+                            var overlay = document.getElementById('successOverlay');
+                            var card = document.getElementById('successCard');
+                            var nameSpan = document.getElementById('successName');
+                            var idSpan = document.getElementById('successId');
+                            if (nameSpan) nameSpan.textContent = name;
+                            if (idSpan) idSpan.textContent = id;
+                            if (overlay) overlay.style.display = 'flex';
+                            if (card) setTimeout(function () { card.style.transform = 'scale(1)'; card.style.opacity = '1'; }, 10);
+
+                            setTimeout(function () {
+                                document.getElementById('quickPopupOverlay').style.display = 'none';
+                                btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Request Callback';
+                            }, 500);
+                        })
+                        .catch(function () {
+                            _popupSubmitting = false;
+                            btn.disabled = false;
+                            btn.innerHTML = 'Try Again';
+                            alert('Submission failed. Please try again.');
+                        });
+                }
+            </script>
+        </div>
+    </div>
 </body>
+
 </html>

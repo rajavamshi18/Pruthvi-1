@@ -1,6 +1,41 @@
 // Google Apps Script Web App URL to store customer inquiries in your Google Sheet.
-// Paste your Web App URL here after deploying your Apps Script!
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxqE8fKubGiIjnLcVJaLJu33xGsNYGJLyw_tVZ76Ms43qvrLRshKCEkYsCWFtfqTLamYw/exec';
+
+/* ============================================================
+   DEVICE DETECTION via User-Agent String
+   Detects: iPhone, Android phone, iPad, tablet, desktop
+   Adds CSS classes to <body> for device-specific styling
+   ============================================================ */
+(function detectDevice() {
+    const ua = navigator.userAgent;
+
+    const isIphone   = /iPhone/i.test(ua);
+    const isIpad     = /iPad/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    const isAndroid  = /Android/i.test(ua);
+    const isMobile   = /Mobi|Android|iPhone|BlackBerry|IEMobile|Opera Mini/i.test(ua);
+    const isTablet   = isIpad || (/Tablet|iPad/i.test(ua)) || (isAndroid && !/Mobi/i.test(ua));
+    const isTouch    = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
+
+    const body = document.documentElement; // apply to <html> so CSS sees it early
+
+    if (isMobile && !isTablet) {
+        body.classList.add('is-mobile');
+        body.setAttribute('data-device', isIphone ? 'iphone' : 'android-phone');
+    } else if (isTablet) {
+        body.classList.add('is-tablet');
+        body.setAttribute('data-device', isIpad ? 'ipad' : 'android-tablet');
+    } else {
+        body.classList.add('is-desktop');
+        body.setAttribute('data-device', 'desktop');
+    }
+
+    if (isTouch) body.classList.add('is-touch');
+
+    // Log device for debugging (remove in production if desired)
+    console.info('[MR Construction] Device detected:', body.getAttribute('data-device'),
+        '| Touch:', isTouch, '| UA:', ua.substring(0, 80));
+})();
+
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -37,27 +72,27 @@ document.addEventListener('DOMContentLoaded', () => {
        2. Dynamic Mouse 3D Tilt Effect on Hero Card
        ========================================================================== */
     const heroCard = document.getElementById('heroVisualCard');
-    
+
     if (heroCard) {
         const visualContainer = document.querySelector('.hero-visual-container');
-        
+
         visualContainer.addEventListener('mousemove', (e) => {
             const rect = visualContainer.getBoundingClientRect();
             const x = e.clientX - rect.left; // x coordinate within container
             const y = e.clientY - rect.top;  // y coordinate within container
-            
+
             // Calculate relative offset from center (-0.5 to 0.5)
             const xc = (x / rect.width) - 0.5;
             const yc = (y / rect.height) - 0.5;
-            
+
             // Limit maximum rotation angle to 20deg
             const maxRotation = 20;
             const rotateY = xc * maxRotation;
             const rotateX = -yc * maxRotation; // Negative to tilt forward/backward intuitively
-            
+
             heroCard.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
         });
-        
+
         visualContainer.addEventListener('mouseleave', () => {
             // Smooth recovery to default tilt
             heroCard.style.transform = `rotateX(10deg) rotateY(-15deg)`;
@@ -73,13 +108,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const items = document.querySelectorAll('.carousel-item-3d');
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
-    
+
     if (carousel && items.length > 0) {
         const itemCount = items.length;
         const angleUnit = 360 / itemCount;
-        
+
         // Calculate appropriate radius for 3D spacing depending on viewport width
-        let tzRadius = 280; 
+        let tzRadius = 280;
         const adjustRadius = () => {
             if (window.innerWidth < 480) {
                 tzRadius = 200;
@@ -92,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         let currentAngle = 0;
-        
+
         // Position items radially in 3D space
         function updateItemTransforms() {
             items.forEach((item, index) => {
@@ -101,21 +136,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 item.style.transform = `rotateY(${itemAngle}deg) translateZ(${tzRadius}px)`;
             });
         }
-        
+
         // Initialize position
         adjustRadius();
         window.addEventListener('resize', adjustRadius);
-        
+
         // Rotation trigger function
         const rotateCarousel = () => {
             carousel.style.transform = `rotateY(${currentAngle}deg)`;
-            
+
             // Apply scale/blur effects dynamically based on proximity to viewport
             items.forEach((item, index) => {
                 // Determine item rotation angle relative to current view angle
                 const rawAngle = (index * angleUnit) + currentAngle;
                 const normalizeAngle = Math.abs(rawAngle % 360);
-                
+
                 // If index angle matches front perspective (0, 360)
                 if (normalizeAngle < 45 || normalizeAngle > 315) {
                     item.style.filter = 'blur(0px) brightness(100%)';
@@ -132,31 +167,31 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         };
-        
+
         prevBtn.addEventListener('click', () => {
             currentAngle += angleUnit;
             rotateCarousel();
         });
-        
+
         nextBtn.addEventListener('click', () => {
             currentAngle -= angleUnit;
             rotateCarousel();
         });
-        
+
         // Touch swipe support for mobile
         let touchStartX = 0;
         let touchEndX = 0;
-        
+
         // Auto-play functionality
         let autoPlayInterval;
-        
+
         function startAutoPlay() {
             autoPlayInterval = setInterval(() => {
                 currentAngle -= angleUnit;
                 rotateCarousel();
             }, 1800);
         }
-        
+
         function pauseAutoPlay() {
             clearInterval(autoPlayInterval);
         }
@@ -166,7 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 touchStartX = e.changedTouches[0].screenX;
                 pauseAutoPlay();
             }, { passive: true });
-            
+
             carouselContainer.addEventListener('touchend', e => {
                 touchEndX = e.changedTouches[0].screenX;
                 if (touchEndX < touchStartX - 50) {
@@ -183,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
             carouselContainer.addEventListener('mouseenter', pauseAutoPlay);
             carouselContainer.addEventListener('mouseleave', startAutoPlay);
         }
-        
+
         // Initial setup
         rotateCarousel();
         startAutoPlay();
@@ -196,48 +231,48 @@ document.addEventListener('DOMContentLoaded', () => {
     const slider = document.getElementById('beforeAfterSlider');
     const afterImg = document.getElementById('afterImage');
     const sliderBar = document.getElementById('sliderBar');
-    
+
     if (slider) {
         let isSliding = false;
-        
+
         const moveSlider = (clientX) => {
             const rect = slider.getBoundingClientRect();
             let positionX = clientX - rect.left;
-            
+
             // Restrain boundaries (0% to 100%)
             if (positionX < 0) positionX = 0;
             if (positionX > rect.width) positionX = rect.width;
-            
+
             const percentage = (positionX / rect.width) * 100;
-            
+
             // Apply coordinates to slide components
             sliderBar.style.left = `${percentage}%`;
             afterImg.style.width = `${percentage}%`;
         };
-        
+
         // Desktop mouse inputs
         slider.addEventListener('mousedown', () => {
             isSliding = true;
         });
-        
+
         window.addEventListener('mouseup', () => {
             isSliding = false;
         });
-        
+
         slider.addEventListener('mousemove', (e) => {
             if (!isSliding) return;
             moveSlider(e.clientX);
         });
-        
+
         // Touch mobile inputs
         slider.addEventListener('touchstart', () => {
             isSliding = true;
         });
-        
+
         window.addEventListener('touchend', () => {
             isSliding = false;
         });
-        
+
         slider.addEventListener('touchmove', (e) => {
             if (!isSliding) return;
             if (e.touches.length > 0) {
