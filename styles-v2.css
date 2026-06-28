@@ -8,7 +8,8 @@
     --accent-gold-hover: #e5c494;
     --text-pure: #ffffff;
     --text-silver: #a0a7b5;
-    --text-muted: #8d96a7;  /* was #626a7a — lightened for 4.5:1 contrast ratio */
+    --text-muted: #8d96a7;
+    /* was #626a7a — lightened for 4.5:1 contrast ratio */
     --glass-bg: rgba(17, 20, 27, 0.65);
     --glass-border: rgba(255, 255, 255, 0.07);
     --glass-glow: rgba(255, 255, 255, 0.02);
@@ -73,7 +74,8 @@ html.is-touch .nav-links a {
 html.is-touch .btn-gold,
 html.is-touch .btn-outline {
     padding: 14px 28px;
-    min-height: 48px; /* WCAG touch target minimum */
+    min-height: 48px;
+    /* WCAG touch target minimum */
 }
 
 
@@ -434,7 +436,8 @@ section {
 
 .hero-footer a {
     font-size: 0.8rem;
-    color: #8d96a7; /* WCAG AA compliant — contrast ratio > 4.5:1 */
+    color: #8d96a7;
+    /* WCAG AA compliant — contrast ratio > 4.5:1 */
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -856,14 +859,6 @@ section {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    width: 60px;
-    height: 60px;
-    background-color: #25d366;
-    color: #fff;
-    border-radius: 50px;
-    text-align: center;
-    font-size: 32px;
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
     z-index: 9990;
     display: flex;
     align-items: center;
@@ -872,10 +867,80 @@ section {
     transition: all 0.3s ease;
 }
 
-.whatsapp-float:hover {
+.whatsapp-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #25d366;
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 32px;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.whatsapp-float:hover .whatsapp-icon {
     transform: translateY(-5px);
     box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
-    color: #fff;
+}
+
+.whatsapp-msg {
+    background: rgba(8, 10, 15, 0.9);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--accent-gold);
+    color: var(--accent-gold);
+    font-family: 'Outfit', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.75rem;
+    padding: 8px 16px;
+    border-radius: 20px;
+    margin-right: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    position: relative;
+    opacity: 0;
+    transform: translateX(20px);
+    white-space: nowrap;
+    animation: hideShowLoop 13s infinite;
+}
+
+/* Tiny triangle pointing to the icon */
+.whatsapp-msg::after {
+    content: '';
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: 6px 0 6px 6px;
+    border-style: solid;
+    border-color: transparent transparent transparent var(--accent-gold);
+}
+
+@keyframes hideShowLoop {
+
+    0%,
+    19% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    23%,
+    96% {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 /* Popup Modal */
@@ -928,6 +993,7 @@ section {
         opacity: 0;
         transform: translateY(30px) scale(0.95);
     }
+
     to {
         opacity: 1;
         transform: translateY(0) scale(1);
@@ -953,7 +1019,8 @@ footer {
 
 .footer-text {
     font-size: 0.9rem;
-    color: #8d96a7; /* WCAG AA compliant — contrast ratio > 4.5:1 */
+    color: #8d96a7;
+    /* WCAG AA compliant — contrast ratio > 4.5:1 */
 }
 
 .footer-socials {
@@ -1060,11 +1127,17 @@ footer {
 @media (max-width: 1024px) {
 
     /* Nav: show hamburger, hide links */
-    .menu-toggle { display: flex; }
+    .menu-toggle {
+        display: flex;
+    }
 
-    .nav-container { padding: 18px 24px; }
+    .nav-container {
+        padding: 18px 24px;
+    }
 
-    header.scrolled .nav-container { padding: 12px 24px; }
+    header.scrolled .nav-container {
+        padding: 12px 24px;
+    }
 
     .nav-links {
         position: fixed;
@@ -1082,7 +1155,9 @@ footer {
         z-index: 999;
     }
 
-    .nav-links.active { right: 0; }
+    .nav-links.active {
+        right: 0;
+    }
 
     /* Hero: reduce padding and font for tablet */
     .hero-left {
@@ -1091,12 +1166,17 @@ footer {
 
     .hero-left-content h1 {
         font-size: 3.6rem;
-        width: 120%; /* still overlaps slightly on tablet */
+        width: 120%;
+        /* still overlaps slightly on tablet */
     }
 
-    .section-header h2 { font-size: 2.2rem; }
+    .section-header h2 {
+        font-size: 2.2rem;
+    }
 
-    .booking-form-card { padding: 36px; }
+    .booking-form-card {
+        padding: 36px;
+    }
 
     /* Services: 2 columns on tablet */
     .services-grid {
@@ -1104,19 +1184,27 @@ footer {
         gap: 28px;
     }
 
-    .service-card-wrapper { height: 400px; }
+    .service-card-wrapper {
+        height: 400px;
+    }
 }
 
 /* ─── MOBILE  ≤ 768px ─────────────────────────────────────────── */
 @media (max-width: 768px) {
 
     /* General */
-    section { padding: 56px 20px; }
+    section {
+        padding: 56px 20px;
+    }
 
     /* Navigation */
-    .nav-container { padding: 14px 18px; }
+    .nav-container {
+        padding: 14px 18px;
+    }
 
-    header.scrolled .nav-container { padding: 10px 18px; }
+    header.scrolled .nav-container {
+        padding: 10px 18px;
+    }
 
     .nav-links {
         top: 62px;
@@ -1124,10 +1212,15 @@ footer {
         gap: 32px;
     }
 
-    .nav-links a { font-size: 1.1rem; letter-spacing: 2px; }
+    .nav-links a {
+        font-size: 1.1rem;
+        letter-spacing: 2px;
+    }
 
     /* Hide "Let's Talk" button to save nav space */
-    .nav-container > .btn-gold { display: none; }
+    .nav-container>.btn-gold {
+        display: none;
+    }
 
     /* ── Hero: stack vertically ── */
     .hero {
@@ -1144,7 +1237,9 @@ footer {
         text-align: center;
     }
 
-    .hero-left-content { max-width: 100%; }
+    .hero-left-content {
+        max-width: 100%;
+    }
 
     /* CRITICAL: reset the 135% desktop overflow trick */
     .hero-left-content h1 {
@@ -1184,7 +1279,9 @@ footer {
     }
 
     /* Hide floating arrow (overlaps on mobile) */
-    .hero-split-btn { display: none; }
+    .hero-split-btn {
+        display: none;
+    }
 
     /* Image column: full width banner */
     .hero-right {
@@ -1195,11 +1292,17 @@ footer {
     }
 
     /* ── Section headers ── */
-    .section-header { margin-bottom: 36px; }
+    .section-header {
+        margin-bottom: 36px;
+    }
 
-    .section-header h2 { font-size: clamp(1.6rem, 5vw, 2rem); }
+    .section-header h2 {
+        font-size: clamp(1.6rem, 5vw, 2rem);
+    }
 
-    .section-header p { font-size: 0.95rem; }
+    .section-header p {
+        font-size: 0.95rem;
+    }
 
     /* ── Services: single column ── */
     .services-grid {
@@ -1207,11 +1310,17 @@ footer {
         gap: 20px;
     }
 
-    .service-card-wrapper { height: 380px; }
+    .service-card-wrapper {
+        height: 380px;
+    }
 
-    .service-card-side { padding: 28px; }
+    .service-card-side {
+        padding: 28px;
+    }
 
-    .service-card-front h3 { font-size: 1.4rem; }
+    .service-card-front h3 {
+        font-size: 1.4rem;
+    }
 
     /* ── Portfolio Carousel ── */
     .showcase-container {
@@ -1234,7 +1343,11 @@ footer {
         gap: 20px;
     }
 
-    .ctrl-btn { width: 44px; height: 44px; font-size: 1rem; }
+    .ctrl-btn {
+        width: 44px;
+        height: 44px;
+        font-size: 1rem;
+    }
 
     /* ── Before/After Slider: stack ── */
     .slider-wrapper {
@@ -1247,9 +1360,13 @@ footer {
         text-align: center;
     }
 
-    .slider-description p { text-align: center; }
+    .slider-description p {
+        text-align: center;
+    }
 
-    .slider-container { height: 280px; }
+    .slider-container {
+        height: 280px;
+    }
 
     /* ── Contact Form: full width ── */
     .contact-container {
@@ -1262,26 +1379,40 @@ footer {
         text-align: center;
     }
 
-    .info-item { gap: 14px; }
+    .info-item {
+        gap: 14px;
+    }
 
-    .booking-form-card { padding: 24px 16px; }
+    .booking-form-card {
+        padding: 24px 16px;
+    }
 
     .form-title {
         font-size: 1.4rem;
         text-align: center;
     }
 
-    .form-group { margin-bottom: 22px; }
+    .form-group {
+        margin-bottom: 22px;
+    }
 
     /* ── Instagram Banner ── */
-    .instagram-banner { padding: 50px 20px; }
+    .instagram-banner {
+        padding: 50px 20px;
+    }
 
-    .instagram-banner h3 { font-size: 1.6rem; }
+    .instagram-banner h3 {
+        font-size: 1.6rem;
+    }
 
-    .instagram-banner p { font-size: 0.95rem; }
+    .instagram-banner p {
+        font-size: 0.95rem;
+    }
 
     /* ── Footer ── */
-    footer { padding: 36px 20px; }
+    footer {
+        padding: 36px 20px;
+    }
 
     .footer-container {
         flex-direction: column;
@@ -1290,25 +1421,42 @@ footer {
         gap: 16px;
     }
 
-    .footer-text { font-size: 0.8rem; line-height: 1.7; }
+    .footer-text {
+        font-size: 0.8rem;
+        line-height: 1.7;
+    }
 
-    .footer-socials { justify-content: center; }
+    .footer-socials {
+        justify-content: center;
+    }
 }
 
 /* ─── XS PHONE  ≤ 480px ───────────────────────────────────────── */
 @media (max-width: 480px) {
 
-    section { padding: 44px 16px; }
+    section {
+        padding: 44px 16px;
+    }
 
-    .hero-left { padding: 95px 16px 36px; }
+    .hero-left {
+        padding: 95px 16px 36px;
+    }
 
-    .hero-left-content h1 { font-size: 1.85rem; }
+    .hero-left-content h1 {
+        font-size: 1.85rem;
+    }
 
-    .hero-right { height: 200px; }
+    .hero-right {
+        height: 200px;
+    }
 
-    .services-grid { gap: 16px; }
+    .services-grid {
+        gap: 16px;
+    }
 
-    .service-card-wrapper { height: 345px; }
+    .service-card-wrapper {
+        height: 345px;
+    }
 
     .carousel-3d,
     .carousel-item-3d {
@@ -1316,13 +1464,21 @@ footer {
         height: 280px;
     }
 
-    .showcase-container { height: 400px; }
+    .showcase-container {
+        height: 400px;
+    }
 
-    .slider-container { height: 230px; }
+    .slider-container {
+        height: 230px;
+    }
 
-    .section-header h2 { font-size: 1.4rem; }
+    .section-header h2 {
+        font-size: 1.4rem;
+    }
 
-    .booking-form-card { padding: 18px 12px; }
+    .booking-form-card {
+        padding: 18px 12px;
+    }
 
     .btn-gold,
     .btn-outline {
@@ -1337,11 +1493,17 @@ footer {
         font-size: 2rem;
     }
 
-    .instagram-banner h3 { font-size: 1.35rem; }
+    .instagram-banner h3 {
+        font-size: 1.35rem;
+    }
 
-    .form-title { font-size: 1.2rem; }
+    .form-title {
+        font-size: 1.2rem;
+    }
 
-    .info-item { gap: 12px; }
+    .info-item {
+        gap: 12px;
+    }
 
     .info-icon {
         width: 42px;
@@ -1357,12 +1519,15 @@ footer {
         grid-template-columns: 0.9fr 1.1fr !important;
         gap: 60px !important;
     }
+
     .contact-info {
         display: flex !important;
     }
+
     .booking-form-card {
         width: 100% !important;
     }
+
     .form-title {
         text-align: left !important;
     }

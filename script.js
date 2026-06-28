@@ -283,4 +283,116 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+/* ==========================================================================
+   5. Basketball WhatsApp Goal Animation
+   ========================================================================== */
+function playBasketballAnimation() {
+    const ball = document.createElement('div');
+    ball.innerHTML = '<i class="fa-solid fa-basketball"></i>';
+    ball.style.position = 'fixed';
+    ball.style.fontSize = '45px';
+    ball.style.color = '#ff6b00';
+    ball.style.zIndex = '99999';
+    ball.style.pointerEvents = 'none';
+    ball.style.filter = 'drop-shadow(0 10px 15px rgba(0,0,0,0.4))';
+    ball.style.transition = 'opacity 0.2s';
+    document.body.appendChild(ball);
 
+    // Initial position (top left, off screen)
+    let x = -60;
+    let y = 100;
+    
+    // Target is WhatsApp icon
+    let targetX = window.innerWidth - 80;
+    let targetY = window.innerHeight - 80;
+    
+    // 2.5 seconds of bouncing
+    let totalFrames = 2.5 * 60;
+    let vx = (targetX - x) / totalFrames;
+    let vy = 0;
+    let gravity = 0.6;
+    let bounce = -0.75;
+    let rotation = 0;
+
+    let startTime = Date.now();
+    let phase = 'bounce';
+    
+    function animate() {
+        let elapsed = Date.now() - startTime;
+        
+        if (phase === 'bounce') {
+            vy += gravity;
+            x += vx;
+            y += vy;
+            rotation += 8;
+
+            // Floor collision
+            if (y > window.innerHeight - 70) {
+                y = window.innerHeight - 70;
+                vy *= bounce;
+            }
+            
+            // Switch to suck phase at 2500ms
+            if (elapsed > 2500) {
+                phase = 'suck';
+                startTime = Date.now();
+            }
+            
+            ball.style.transform = `rotate(${rotation}deg)`;
+            ball.style.left = x + 'px';
+            ball.style.top = y + 'px';
+            
+            requestAnimationFrame(animate);
+            
+        } else if (phase === 'suck') {
+            let suckElapsed = Date.now() - startTime;
+            let duration = 500; // 0.5s to get sucked in
+            let progress = Math.min(suckElapsed / duration, 1);
+            
+            let ease = progress * progress * progress; // Cubic ease in
+            
+            let finalX = window.innerWidth - 75;
+            let finalY = window.innerHeight - 75;
+            
+            let currentX = x + (finalX - x) * ease;
+            let currentY = y + (finalY - y) * ease;
+            rotation += 15;
+            
+            let scale = 1;
+            if (progress > 0.5) {
+                scale = 1 - ((progress - 0.5) * 2);
+            }
+            
+            ball.style.transform = `rotate(${rotation}deg) scale(${scale})`;
+            ball.style.left = currentX + 'px';
+            ball.style.top = currentY + 'px';
+            
+            if (progress < 1) {
+                requestAnimationFrame(animate);
+            } else {
+                ball.remove();
+                // Shake WhatsApp icon
+                let waIcon = document.querySelector('.whatsapp-float');
+                if(waIcon) {
+                    let oldTrans = waIcon.style.transition;
+                    waIcon.style.transition = 'transform 0.1s';
+                    waIcon.style.transform = 'scale(1.3) rotate(-15deg)';
+                    setTimeout(() => {
+                        waIcon.style.transform = 'scale(1.1) rotate(15deg)';
+                        setTimeout(() => {
+                            waIcon.style.transform = '';
+                            setTimeout(() => {
+                                waIcon.style.transition = oldTrans;
+                            }, 50);
+                        }, 100);
+                    }, 100);
+                }
+            }
+        }
+    }
+    
+    animate();
+}
+
+// Play once after 1.5 seconds
+setTimeout(playBasketballAnimation, 1500);
