@@ -232,7 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const afterImg = document.getElementById('afterImage');
     const sliderBar = document.getElementById('sliderBar');
 
-    if (slider) {
+    if (slider && afterImg && sliderBar) {
         let isSliding = false;
 
         const moveSlider = (clientX) => {
@@ -247,38 +247,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Apply coordinates to slide components
             sliderBar.style.left = `${percentage}%`;
-            afterImg.style.width = `${percentage}%`;
+            afterImg.style.clipPath = `polygon(${percentage}% 0, 100% 0, 100% 100%, ${percentage}% 100%)`;
         };
 
-        // Desktop mouse inputs
-        slider.addEventListener('mousedown', () => {
+        const startSliding = (e) => {
             isSliding = true;
-        });
-
-        window.addEventListener('mouseup', () => {
-            isSliding = false;
-        });
-
-        slider.addEventListener('mousemove', (e) => {
-            if (!isSliding) return;
-            moveSlider(e.clientX);
-        });
-
-        // Touch mobile inputs
-        slider.addEventListener('touchstart', () => {
-            isSliding = true;
-        });
-
-        window.addEventListener('touchend', () => {
-            isSliding = false;
-        });
-
-        slider.addEventListener('touchmove', (e) => {
-            if (!isSliding) return;
-            if (e.touches.length > 0) {
-                moveSlider(e.touches[0].clientX);
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            moveSlider(clientX);
+            // Prevent text selection or page scrolling while dragging
+            if (e.cancelable) {
+                e.preventDefault();
             }
-        });
+        };
+
+        const stopSliding = () => {
+            isSliding = false;
+        };
+
+        const handleSliding = (e) => {
+            if (!isSliding) return;
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            moveSlider(clientX);
+            // Prevent scrolling on touch devices during sliding
+            if (e.touches && e.cancelable) {
+                e.preventDefault();
+            }
+        };
+
+        // Desktop Events
+        slider.addEventListener('mousedown', startSliding);
+        window.addEventListener('mousemove', handleSliding);
+        window.addEventListener('mouseup', stopSliding);
+
+        // Mobile/Touch Events
+        slider.addEventListener('touchstart', startSliding, { passive: false });
+        window.addEventListener('touchmove', handleSliding, { passive: false });
+        window.addEventListener('touchend', stopSliding);
+        window.addEventListener('touchcancel', stopSliding);
     }
 
 });
